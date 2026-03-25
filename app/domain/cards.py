@@ -5,7 +5,6 @@ from typing import Any, Literal
 
 Arcana = Literal["major", "minor"]
 Suit = Literal["wands", "cups", "swords", "pentacles"]
-Orientation = Literal["upright", "reversed"]
 
 
 @dataclass(frozen=True, slots=True)

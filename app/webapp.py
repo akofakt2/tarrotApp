@@ -8,6 +8,7 @@ from typing import Any
 
 from flask import Flask, abort, render_template, request
 
+from app.domain.deck import Deck
 from app.infra.cards_repository import load_cards_repository
 
 
@@ -115,6 +116,53 @@ def create_app() -> Flask:
             bottom_major=bottom_major,
             minor_cards_for_suit=minor_cards_for_suit,
             selected_id=card_id,
+        )
+
+    @app.get("/deck")
+    def deck_view() -> str:
+        locale = (request.args.get("locale") or "en").lower()
+        if locale not in {"en", "sk"}:
+            abort(400, "Unsupported locale")
+
+        card_set = (request.args.get("set") or app.config.get("TAROT_CARD_SET") or "default").strip().lower()
+        if not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", card_set):
+            abort(400, "Unsupported card set")
+        images_base_dir = (app.config.get("TAROT_CARD_IMAGES_BASE_DIR") or "cards").strip().strip("/")
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_/-]*", images_base_dir):
+            abort(500, "Invalid TAROT_CARD_IMAGES_BASE_DIR")
+        card_images_dir = f"{images_base_dir}/{card_set}".strip("/")
+
+        seed_raw = request.args.get("seed")
+        seed: int | None = None
+        if seed_raw and seed_raw.lower() not in {"none", ""}:
+            try:
+                seed = int(seed_raw)
+            except ValueError:
+                abort(400, "seed must be an integer")
+
+        repo = load_cards_repository(
+            locale=locale,
+            fallback_locale="sk",
+            validate_images=False,
+            card_set=card_set,
+            images_base_dir=images_base_dir,
+        )
+        cards = repo.list_all()
+
+        d = Deck()
+        d.reset(sorted((c.id for c in cards)))
+        d.shuffle(seed=seed)
+
+        cards_by_id = {c.id: c for c in cards}
+        deck_cards = [(cards_by_id[card_id], d.orientations.get(card_id, "upright")) for card_id in d.order]
+
+        return render_template(
+            "deck/view.html",
+            locale=locale,
+            card_set=card_set,
+            card_images_dir=card_images_dir,
+            deck_cards=deck_cards,
+            seed=seed,
         )
 
     return app

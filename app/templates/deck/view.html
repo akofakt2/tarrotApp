@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="{{ locale }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Deck</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <main class="container">
+      <section>
+        <div class="header">
+          <h1 class="title">Shuffled deck</h1>
+
+          <div class="row">
+            <span class="muted">Locale</span>
+            <div class="row">
+              <a class="pill {% if locale == 'sk' %}is-active{% endif %}" href="{{ url_for('deck_view', locale='sk', set=card_set, seed=seed) }}">SK</a>
+              <a class="pill {% if locale == 'en' %}is-active{% endif %}" href="{{ url_for('deck_view', locale='en', set=card_set, seed=seed) }}">EN</a>
+            </div>
+          </div>
+        </div>
+
+        <p class="hint">
+          This is a randomized order of all 78 cards, including random upright/reversed orientations{% if seed is not none %} (seed={{ seed }}){% endif %}.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="minor-grid">
+          {% for c, o in deck_cards %}
+            <div class="card">
+              <img
+                src="{{ url_for('static', filename=card_images_dir ~ '/' ~ c.image_path) }}"
+                alt="{{ c.name }}"
+                loading="lazy"
+                class="card-img"
+                style="{% if o == 'reversed' %}transform: rotate(180deg);{% endif %}"
+              />
+              <div class="card-title">{{ c.id }}. {{ c.name }}</div>
+              <div class="small">
+                Orientation: <span class="mono">{{ o }}</span>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
