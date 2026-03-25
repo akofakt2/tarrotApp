@@ -4,79 +4,80 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tarot Cards</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
   </head>
-  <body class="bg-zinc-950 text-zinc-100">
-    <main class="max-w-6xl mx-auto p-6 space-y-8">
-      <section class="space-y-4">
-        <div class="flex items-center justify-between gap-4 flex-wrap">
-          <h1 class="text-2xl font-semibold">Tarot catalog</h1>
+  <body>
+    <main class="container">
+      <section>
+        <div class="header">
+          <h1 class="title">Tarot catalog</h1>
 
-          <div class="flex items-center gap-3">
-            <span class="text-sm text-zinc-400">Locale</span>
-            <div class="flex gap-2">
+          <div class="row">
+            <span class="muted">Locale</span>
+            <div class="row">
               <a
-                class="px-3 py-1 rounded border border-zinc-700 hover:border-zinc-500 {% if locale == 'sk' %}bg-zinc-800{% endif %}"
-                  href="{{ url_for('cards_catalog', locale='sk', suit=selected_suit, id=selected_id) }}"
+                class="pill {% if locale == 'sk' %}is-active{% endif %}"
+                  href="{{ url_for('cards_catalog', locale='sk', set=card_set, suit=selected_suit, id=selected_id) }}"
               >SK</a>
               <a
-                class="px-3 py-1 rounded border border-zinc-700 hover:border-zinc-500 {% if locale == 'en' %}bg-zinc-800{% endif %}"
-                  href="{{ url_for('cards_catalog', locale='en', suit=selected_suit, id=selected_id) }}"
+                class="pill {% if locale == 'en' %}is-active{% endif %}"
+                  href="{{ url_for('cards_catalog', locale='en', set=card_set, suit=selected_suit, id=selected_id) }}"
               >EN</a>
             </div>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="rounded border border-zinc-800 p-4">
-            <div class="font-medium text-zinc-300 mb-3">Major Arcana</div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        <div class="grid-top" style="margin-top: 16px;">
+          <div class="panel">
+            <div class="section-title">Major Arcana</div>
+            <div class="major-grid">
               {% for c in major_cards %}
                 <a
-                  href="{{ url_for('cards_catalog', locale=locale, id=c.id) }}"
-                  class="block rounded border border-zinc-800 hover:border-zinc-600 p-2 {% if selected_suit is not none and bottom_major is none %}{% endif %} {% if selected_id == c.id and selected_suit is none %}bg-zinc-800{% endif %}"
+                  href="{{ url_for('cards_catalog', locale=locale, set=card_set, id=c.id) }}"
+                  class="major-item {% if selected_id == c.id and selected_suit is none %}is-active{% endif %}"
                   title="{{ c.id }}"
                 >
-                  <div class="text-sm font-semibold">{{ c.id }}.</div>
-                  <div class="text-xs text-zinc-300">{{ c.name }}</div>
+                  <div class="major-id">{{ c.id }}.</div>
+                  <div class="major-name">{{ c.name }}</div>
                 </a>
               {% endfor %}
             </div>
           </div>
 
-          <div class="rounded border border-zinc-800 p-4 md:col-span-2">
-            <div class="font-medium text-zinc-300 mb-3">Minor Suits</div>
-            <div class="flex flex-wrap gap-2">
+          <div class="panel">
+            <div class="section-title">Minor Suits</div>
+            <div class="suits">
               {% for s in suits %}
                 <a
-                  href="{{ url_for('cards_catalog', locale=locale, suit=s) }}"
-                  class="px-3 py-1 rounded border border-zinc-800 hover:border-zinc-600 text-sm {% if selected_suit == s %}bg-zinc-800{% endif %}"
+                  href="{{ url_for('cards_catalog', locale=locale, set=card_set, suit=s) }}"
+                  class="pill {% if selected_suit == s %}is-active{% endif %}"
                 >
                   {{ s|capitalize }}
                 </a>
               {% endfor %}
             </div>
 
-            <p class="mt-4 text-sm text-zinc-500">
+            <p class="hint">
               Select a suit to show all minor cards from that suit, or select a major card below.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="rounded border border-zinc-800 p-4">
+      <section class="panel">
         {% if selected_suit %}
-          <div class="text-lg font-semibold mb-3">Minor: {{ selected_suit|capitalize }}</div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="section-title">Minor: {{ selected_suit|capitalize }}</div>
+          <div class="minor-grid">
             {% for c in minor_cards_for_suit %}
-              <div class="rounded border border-zinc-900 bg-zinc-950 p-3 space-y-2">
+              <div class="card">
                 <img
-                  src="{{ url_for('static', filename=c.image_path) }}"
+                  src="{{ url_for('static', filename=card_images_dir ~ '/' ~ c.image_path) }}"
                   alt="{{ c.name }}"
-                  class="w-full h-48 object-cover rounded border border-zinc-800"
+                  loading="lazy"
+                  class="card-img"
                 />
-                <div class="font-semibold text-sm">{{ c.id }}. {{ c.name }}</div>
-                <div class="text-xs text-zinc-500">
+                <div class="card-title">{{ c.id }}. {{ c.name }}</div>
+                <div class="small">
                   Keywords:
                   {% if c.keywords %}
                     {{ c.keywords|join(', ') }}
@@ -84,41 +85,42 @@
                     —
                   {% endif %}
                 </div>
-                <details class="text-sm">
-                  <summary class="cursor-pointer text-zinc-300">Meanings</summary>
-                  <div class="mt-2 space-y-2">
-                    <div class="text-xs text-zinc-400"><span class="font-semibold">{{ upright_heading }}:</span> {{ c.meaning_upright }}</div>
-                    <div class="text-xs text-zinc-400"><span class="font-semibold">{{ reversed_heading }}:</span> {{ c.meaning_reversed }}</div>
+                <details class="details">
+                  <summary>Meanings</summary>
+                  <div class="meaning">
+                    <div><span class="meaning-title">{{ upright_heading }}:</span> {{ c.meaning_upright }}</div>
+                    <div><span class="meaning-title">{{ reversed_heading }}:</span> {{ c.meaning_reversed }}</div>
                   </div>
                 </details>
               </div>
             {% endfor %}
           </div>
         {% else %}
-          <div class="text-lg font-semibold mb-3">
+          <div class="section-title">
             Major card detail
             {% if bottom_major %}({{ bottom_major.id }}. {{ bottom_major.name }}){% endif %}
           </div>
 
           {% if bottom_major %}
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-              <div class="rounded border border-zinc-900 bg-zinc-950 p-3">
+            <div class="bottom-grid">
+              <div class="card">
                 <img
-                  src="{{ url_for('static', filename=bottom_major.image_path) }}"
+                  src="{{ url_for('static', filename=card_images_dir ~ '/' ~ bottom_major.image_path) }}"
                   alt="{{ bottom_major.name }}"
-                  class="w-full h-72 object-cover rounded border border-zinc-800"
+                  loading="lazy"
+                  class="card-img"
                 />
               </div>
 
-              <div class="md:col-span-2 space-y-4">
-                <div>
-                  <div class="text-sm text-zinc-400">Card ID</div>
-                  <div class="font-mono text-sm text-zinc-200">{{ bottom_major.id }}</div>
+              <div style="display: grid; gap: 16px;">
+                <div class="info-block">
+                  <div class="label">Card ID</div>
+                  <div class="mono">{{ bottom_major.id }}</div>
                 </div>
 
-                <div>
-                  <div class="text-sm text-zinc-400">Keywords</div>
-                  <div class="text-sm text-zinc-200">
+                <div class="info-block">
+                  <div class="label">Keywords</div>
+                  <div>
                     {% if bottom_major.keywords %}
                       {{ bottom_major.keywords|join(', ') }}
                     {% else %}
@@ -127,20 +129,20 @@
                   </div>
                 </div>
 
-                <div class="space-y-3">
-                  <div class="rounded border border-zinc-800 p-3">
-                    <div class="text-sm font-semibold">{{ upright_heading }}</div>
-                    <div class="text-sm text-zinc-200 mt-1">{{ bottom_major.meaning_upright }}</div>
+                <div class="meaning-panels">
+                  <div class="meaning-panel">
+                    <div class="meaning-title">{{ upright_heading }}</div>
+                    <div class="meaning-text">{{ bottom_major.meaning_upright }}</div>
                   </div>
-                  <div class="rounded border border-zinc-800 p-3">
-                    <div class="text-sm font-semibold">{{ reversed_heading }}</div>
-                    <div class="text-sm text-zinc-200 mt-1">{{ bottom_major.meaning_reversed }}</div>
+                  <div class="meaning-panel">
+                    <div class="meaning-title">{{ reversed_heading }}</div>
+                    <div class="meaning-text">{{ bottom_major.meaning_reversed }}</div>
                   </div>
                 </div>
               </div>
             </div>
           {% else %}
-            <div class="text-sm text-zinc-400">No major card selected.</div>
+            <div class="muted">No major card selected.</div>
           {% endif %}
         {% endif %}
       </section>

@@ -3,12 +3,12 @@
   "locale": "en",
   "cards": [
     {
-      "id": 1,
+      "id": 0,
       "arcana": "major",
       "number": 0,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/00_the_fool.webp",
+      "image_path": "0.png",
       "name": "The Fool",
       "keywords": [
         "beginnings",
@@ -21,12 +21,12 @@
       "description": "A step into the unknown with openness and curiosity."
     },
     {
-      "id": 2,
+      "id": 1,
       "arcana": "major",
       "number": 1,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/01_the_magician.webp",
+      "image_path": "1.png",
       "name": "The Magician",
       "keywords": [
         "will",
@@ -39,12 +39,12 @@
       "description": "Aligning tools, will, and attention to create change."
     },
     {
-      "id": 3,
+      "id": 2,
       "arcana": "major",
       "number": 2,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/02_the_high_priestess.webp",
+      "image_path": "2.png",
       "name": "The High Priestess",
       "keywords": [
         "intuition",
@@ -57,12 +57,12 @@
       "description": "A quiet invitation to listen beneath the surface."
     },
     {
-      "id": 4,
+      "id": 3,
       "arcana": "major",
       "number": 3,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/03_the_empress.webp",
+      "image_path": "3.png",
       "name": "The Empress",
       "keywords": [
         "nurture",
@@ -75,12 +75,12 @@
       "description": "Care, beauty, and the power of cultivation."
     },
     {
-      "id": 5,
+      "id": 4,
       "arcana": "major",
       "number": 4,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/04_the_emperor.webp",
+      "image_path": "4.png",
       "name": "The Emperor",
       "keywords": [
         "structure",
@@ -93,12 +93,12 @@
       "description": "Order and protection through clear boundaries."
     },
     {
-      "id": 6,
+      "id": 5,
       "arcana": "major",
       "number": 5,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/05_the_hierophant.webp",
+      "image_path": "5.png",
       "name": "The Hierophant",
       "keywords": [
         "tradition",
@@ -111,12 +111,12 @@
       "description": "Learning within a lineage of meaning and practice."
     },
     {
-      "id": 7,
+      "id": 6,
       "arcana": "major",
       "number": 6,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/06_the_lovers.webp",
+      "image_path": "6.png",
       "name": "The Lovers",
       "keywords": [
         "choice",
@@ -129,12 +129,12 @@
       "description": "Choosing with the heart and living your values."
     },
     {
-      "id": 8,
+      "id": 7,
       "arcana": "major",
       "number": 7,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/07_the_chariot.webp",
+      "image_path": "7.png",
       "name": "The Chariot",
       "keywords": [
         "drive",
@@ -147,12 +147,12 @@
       "description": "Harnessing opposing energies to move forward."
     },
     {
-      "id": 9,
+      "id": 8,
       "arcana": "major",
       "number": 8,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/08_strength.webp",
+      "image_path": "8.png",
       "name": "Strength",
       "keywords": [
         "courage",
@@ -165,12 +165,12 @@
       "description": "Taming fear through compassion and steadiness."
     },
     {
-      "id": 10,
+      "id": 9,
       "arcana": "major",
       "number": 9,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/09_the_hermit.webp",
+      "image_path": "9.png",
       "name": "The Hermit",
       "keywords": [
         "solitude",
@@ -183,12 +183,12 @@
       "description": "Stepping back to see clearly."
     },
     {
-      "id": 11,
+      "id": 10,
       "arcana": "major",
       "number": 10,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/10_wheel_of_fortune.webp",
+      "image_path": "10.png",
       "name": "Wheel of Fortune",
       "keywords": [
         "cycles",
@@ -198,15 +198,15 @@
       "meaning_upright": "Turning points, cycles, and shifts in luck.",
       "meaning_reversed": "Resistance to change, delays, or repeating patterns.",
       "archetype": "The Wheel",
-      "description": "Life moves\u2014adapt and meet the moment."
+      "description": "Life moves—adapt and meet the moment."
     },
     {
-      "id": 12,
+      "id": 11,
       "arcana": "major",
       "number": 11,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/11_justice.webp",
+      "image_path": "11.png",
       "name": "Justice",
       "keywords": [
         "truth",
@@ -219,12 +219,12 @@
       "description": "Seeing clearly and acting with integrity."
     },
     {
-      "id": 13,
+      "id": 12,
       "arcana": "major",
       "number": 12,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/12_the_hanged_man.webp",
+      "image_path": "12.png",
       "name": "The Hanged Man",
       "keywords": [
         "pause",
@@ -237,12 +237,12 @@
       "description": "The gift of seeing differently."
     },
     {
-      "id": 14,
+      "id": 13,
       "arcana": "major",
       "number": 13,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/13_death.webp",
+      "image_path": "13.png",
       "name": "Death",
       "keywords": [
         "endings",
@@ -255,12 +255,12 @@
       "description": "Release what is done; renew what remains."
     },
     {
-      "id": 15,
+      "id": 14,
       "arcana": "major",
       "number": 14,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/14_temperance.webp",
+      "image_path": "14.png",
       "name": "Temperance",
       "keywords": [
         "balance",
@@ -273,12 +273,12 @@
       "description": "Blend extremes into something whole."
     },
     {
-      "id": 16,
+      "id": 15,
       "arcana": "major",
       "number": 15,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/15_the_devil.webp",
+      "image_path": "15.png",
       "name": "The Devil",
       "keywords": [
         "attachment",
@@ -291,12 +291,12 @@
       "description": "See the chain to loosen it."
     },
     {
-      "id": 17,
+      "id": 16,
       "arcana": "major",
       "number": 16,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/16_the_tower.webp",
+      "image_path": "16.png",
       "name": "The Tower",
       "keywords": [
         "revelation",
@@ -306,15 +306,15 @@
       "meaning_upright": "Upheaval, revelation, and clearing false structures.",
       "meaning_reversed": "Avoiding the inevitable, prolonged disruption, or fear.",
       "archetype": "The Lightning",
-      "description": "Truth strikes\u2014rebuild on what is real."
+      "description": "Truth strikes—rebuild on what is real."
     },
     {
-      "id": 18,
+      "id": 17,
       "arcana": "major",
       "number": 17,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/17_the_star.webp",
+      "image_path": "17.png",
       "name": "The Star",
       "keywords": [
         "hope",
@@ -327,12 +327,12 @@
       "description": "A quiet yes from the future."
     },
     {
-      "id": 19,
+      "id": 18,
       "arcana": "major",
       "number": 18,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/18_the_moon.webp",
+      "image_path": "18.png",
       "name": "The Moon",
       "keywords": [
         "illusion",
@@ -342,15 +342,15 @@
       "meaning_upright": "Uncertainty, intuition, and navigating the unknown.",
       "meaning_reversed": "Clarity emerging, fear easing, or self-deception exposed.",
       "archetype": "The Dream",
-      "description": "Not everything is clear\u2014move by inner light."
+      "description": "Not everything is clear—move by inner light."
     },
     {
-      "id": 20,
+      "id": 19,
       "arcana": "major",
       "number": 19,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/19_the_sun.webp",
+      "image_path": "19.png",
       "name": "The Sun",
       "keywords": [
         "joy",
@@ -363,12 +363,12 @@
       "description": "Warmth, visibility, and truth in daylight."
     },
     {
-      "id": 21,
+      "id": 20,
       "arcana": "major",
       "number": 20,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/20_judgement.webp",
+      "image_path": "20.png",
       "name": "Judgement",
       "keywords": [
         "awakening",
@@ -381,12 +381,12 @@
       "description": "Choose your next chapter with honesty."
     },
     {
-      "id": 22,
+      "id": 21,
       "arcana": "major",
       "number": 21,
       "suit": null,
       "rank": null,
-      "image_path": "cards/major/21_the_world.webp",
+      "image_path": "21.png",
       "name": "The World",
       "keywords": [
         "completion",
@@ -399,12 +399,12 @@
       "description": "You arrive, and a new cycle begins."
     },
     {
-      "id": 23,
+      "id": 22,
       "arcana": "minor",
       "number": 1,
       "suit": "wands",
       "rank": "ace",
-      "image_path": "cards/minor/wands/ace.webp",
+      "image_path": "22.png",
       "name": "Ace of Wands",
       "keywords": [
         "spark",
@@ -417,12 +417,12 @@
       "description": null
     },
     {
-      "id": 24,
+      "id": 23,
       "arcana": "minor",
       "number": 2,
       "suit": "wands",
       "rank": "two",
-      "image_path": "cards/minor/wands/two.webp",
+      "image_path": "23.png",
       "name": "Two of Wands",
       "keywords": [
         "planning",
@@ -435,12 +435,12 @@
       "description": null
     },
     {
-      "id": 25,
+      "id": 24,
       "arcana": "minor",
       "number": 3,
       "suit": "wands",
       "rank": "three",
-      "image_path": "cards/minor/wands/three.webp",
+      "image_path": "24.png",
       "name": "Three of Wands",
       "keywords": [
         "expansion",
@@ -453,12 +453,12 @@
       "description": null
     },
     {
-      "id": 26,
+      "id": 25,
       "arcana": "minor",
       "number": 4,
       "suit": "wands",
       "rank": "four",
-      "image_path": "cards/minor/wands/four.webp",
+      "image_path": "25.png",
       "name": "Four of Wands",
       "keywords": [
         "celebration",
@@ -471,12 +471,12 @@
       "description": null
     },
     {
-      "id": 27,
+      "id": 26,
       "arcana": "minor",
       "number": 5,
       "suit": "wands",
       "rank": "five",
-      "image_path": "cards/minor/wands/five.webp",
+      "image_path": "26.png",
       "name": "Five of Wands",
       "keywords": [
         "competition",
@@ -489,12 +489,12 @@
       "description": null
     },
     {
-      "id": 28,
+      "id": 27,
       "arcana": "minor",
       "number": 6,
       "suit": "wands",
       "rank": "six",
-      "image_path": "cards/minor/wands/six.webp",
+      "image_path": "27.png",
       "name": "Six of Wands",
       "keywords": [
         "recognition",
@@ -507,12 +507,12 @@
       "description": null
     },
     {
-      "id": 29,
+      "id": 28,
       "arcana": "minor",
       "number": 7,
       "suit": "wands",
       "rank": "seven",
-      "image_path": "cards/minor/wands/seven.webp",
+      "image_path": "28.png",
       "name": "Seven of Wands",
       "keywords": [
         "defense",
@@ -525,12 +525,12 @@
       "description": null
     },
     {
-      "id": 30,
+      "id": 29,
       "arcana": "minor",
       "number": 8,
       "suit": "wands",
       "rank": "eight",
-      "image_path": "cards/minor/wands/eight.webp",
+      "image_path": "29.png",
       "name": "Eight of Wands",
       "keywords": [
         "speed",
@@ -543,12 +543,12 @@
       "description": null
     },
     {
-      "id": 31,
+      "id": 30,
       "arcana": "minor",
       "number": 9,
       "suit": "wands",
       "rank": "nine",
-      "image_path": "cards/minor/wands/nine.webp",
+      "image_path": "30.png",
       "name": "Nine of Wands",
       "keywords": [
         "resilience",
@@ -561,12 +561,12 @@
       "description": null
     },
     {
-      "id": 32,
+      "id": 31,
       "arcana": "minor",
       "number": 10,
       "suit": "wands",
       "rank": "ten",
-      "image_path": "cards/minor/wands/ten.webp",
+      "image_path": "31.png",
       "name": "Ten of Wands",
       "keywords": [
         "burden",
@@ -579,12 +579,12 @@
       "description": null
     },
     {
-      "id": 33,
+      "id": 32,
       "arcana": "minor",
       "number": 11,
       "suit": "wands",
       "rank": "page",
-      "image_path": "cards/minor/wands/page.webp",
+      "image_path": "32.png",
       "name": "Page of Wands",
       "keywords": [
         "curiosity",
@@ -597,12 +597,12 @@
       "description": null
     },
     {
-      "id": 34,
+      "id": 33,
       "arcana": "minor",
       "number": 12,
       "suit": "wands",
       "rank": "knight",
-      "image_path": "cards/minor/wands/knight.webp",
+      "image_path": "33.png",
       "name": "Knight of Wands",
       "keywords": [
         "adventure",
@@ -615,12 +615,12 @@
       "description": null
     },
     {
-      "id": 35,
+      "id": 34,
       "arcana": "minor",
       "number": 13,
       "suit": "wands",
       "rank": "queen",
-      "image_path": "cards/minor/wands/queen.webp",
+      "image_path": "34.png",
       "name": "Queen of Wands",
       "keywords": [
         "confidence",
@@ -633,12 +633,12 @@
       "description": null
     },
     {
-      "id": 36,
+      "id": 35,
       "arcana": "minor",
       "number": 14,
       "suit": "wands",
       "rank": "king",
-      "image_path": "cards/minor/wands/king.webp",
+      "image_path": "35.png",
       "name": "King of Wands",
       "keywords": [
         "vision",
@@ -651,12 +651,12 @@
       "description": null
     },
     {
-      "id": 37,
+      "id": 36,
       "arcana": "minor",
       "number": 1,
       "suit": "cups",
       "rank": "ace",
-      "image_path": "cards/minor/cups/ace.webp",
+      "image_path": "36.png",
       "name": "Ace of Cups",
       "keywords": [
         "love",
@@ -669,12 +669,12 @@
       "description": null
     },
     {
-      "id": 38,
+      "id": 37,
       "arcana": "minor",
       "number": 2,
       "suit": "cups",
       "rank": "two",
-      "image_path": "cards/minor/cups/two.webp",
+      "image_path": "37.png",
       "name": "Two of Cups",
       "keywords": [
         "connection",
@@ -687,12 +687,12 @@
       "description": null
     },
     {
-      "id": 39,
+      "id": 38,
       "arcana": "minor",
       "number": 3,
       "suit": "cups",
       "rank": "three",
-      "image_path": "cards/minor/cups/three.webp",
+      "image_path": "38.png",
       "name": "Three of Cups",
       "keywords": [
         "friendship",
@@ -705,12 +705,12 @@
       "description": null
     },
     {
-      "id": 40,
+      "id": 39,
       "arcana": "minor",
       "number": 4,
       "suit": "cups",
       "rank": "four",
-      "image_path": "cards/minor/cups/four.webp",
+      "image_path": "39.png",
       "name": "Four of Cups",
       "keywords": [
         "apathy",
@@ -723,12 +723,12 @@
       "description": null
     },
     {
-      "id": 41,
+      "id": 40,
       "arcana": "minor",
       "number": 5,
       "suit": "cups",
       "rank": "five",
-      "image_path": "cards/minor/cups/five.webp",
+      "image_path": "40.png",
       "name": "Five of Cups",
       "keywords": [
         "loss",
@@ -741,12 +741,12 @@
       "description": null
     },
     {
-      "id": 42,
+      "id": 41,
       "arcana": "minor",
       "number": 6,
       "suit": "cups",
       "rank": "six",
-      "image_path": "cards/minor/cups/six.webp",
+      "image_path": "41.png",
       "name": "Six of Cups",
       "keywords": [
         "nostalgia",
@@ -759,12 +759,12 @@
       "description": null
     },
     {
-      "id": 43,
+      "id": 42,
       "arcana": "minor",
       "number": 7,
       "suit": "cups",
       "rank": "seven",
-      "image_path": "cards/minor/cups/seven.webp",
+      "image_path": "42.png",
       "name": "Seven of Cups",
       "keywords": [
         "choices",
@@ -777,12 +777,12 @@
       "description": null
     },
     {
-      "id": 44,
+      "id": 43,
       "arcana": "minor",
       "number": 8,
       "suit": "cups",
       "rank": "eight",
-      "image_path": "cards/minor/cups/eight.webp",
+      "image_path": "43.png",
       "name": "Eight of Cups",
       "keywords": [
         "walking_away",
@@ -795,12 +795,12 @@
       "description": null
     },
     {
-      "id": 45,
+      "id": 44,
       "arcana": "minor",
       "number": 9,
       "suit": "cups",
       "rank": "nine",
-      "image_path": "cards/minor/cups/nine.webp",
+      "image_path": "44.png",
       "name": "Nine of Cups",
       "keywords": [
         "satisfaction",
@@ -813,12 +813,12 @@
       "description": null
     },
     {
-      "id": 46,
+      "id": 45,
       "arcana": "minor",
       "number": 10,
       "suit": "cups",
       "rank": "ten",
-      "image_path": "cards/minor/cups/ten.webp",
+      "image_path": "45.png",
       "name": "Ten of Cups",
       "keywords": [
         "harmony",
@@ -831,12 +831,12 @@
       "description": null
     },
     {
-      "id": 47,
+      "id": 46,
       "arcana": "minor",
       "number": 11,
       "suit": "cups",
       "rank": "page",
-      "image_path": "cards/minor/cups/page.webp",
+      "image_path": "46.png",
       "name": "Page of Cups",
       "keywords": [
         "messages",
@@ -849,12 +849,12 @@
       "description": null
     },
     {
-      "id": 48,
+      "id": 47,
       "arcana": "minor",
       "number": 12,
       "suit": "cups",
       "rank": "knight",
-      "image_path": "cards/minor/cups/knight.webp",
+      "image_path": "47.png",
       "name": "Knight of Cups",
       "keywords": [
         "romance",
@@ -867,12 +867,12 @@
       "description": null
     },
     {
-      "id": 49,
+      "id": 48,
       "arcana": "minor",
       "number": 13,
       "suit": "cups",
       "rank": "queen",
-      "image_path": "cards/minor/cups/queen.webp",
+      "image_path": "48.png",
       "name": "Queen of Cups",
       "keywords": [
         "empathy",
@@ -885,12 +885,12 @@
       "description": null
     },
     {
-      "id": 50,
+      "id": 49,
       "arcana": "minor",
       "number": 14,
       "suit": "cups",
       "rank": "king",
-      "image_path": "cards/minor/cups/king.webp",
+      "image_path": "49.png",
       "name": "King of Cups",
       "keywords": [
         "calm",
@@ -903,12 +903,12 @@
       "description": null
     },
     {
-      "id": 51,
+      "id": 50,
       "arcana": "minor",
       "number": 1,
       "suit": "swords",
       "rank": "ace",
-      "image_path": "cards/minor/swords/ace.webp",
+      "image_path": "50.png",
       "name": "Ace of Swords",
       "keywords": [
         "clarity",
@@ -921,12 +921,12 @@
       "description": null
     },
     {
-      "id": 52,
+      "id": 51,
       "arcana": "minor",
       "number": 2,
       "suit": "swords",
       "rank": "two",
-      "image_path": "cards/minor/swords/two.webp",
+      "image_path": "51.png",
       "name": "Two of Swords",
       "keywords": [
         "stalemate",
@@ -939,12 +939,12 @@
       "description": null
     },
     {
-      "id": 53,
+      "id": 52,
       "arcana": "minor",
       "number": 3,
       "suit": "swords",
       "rank": "three",
-      "image_path": "cards/minor/swords/three.webp",
+      "image_path": "52.png",
       "name": "Three of Swords",
       "keywords": [
         "heartbreak",
@@ -957,12 +957,12 @@
       "description": null
     },
     {
-      "id": 54,
+      "id": 53,
       "arcana": "minor",
       "number": 4,
       "suit": "swords",
       "rank": "four",
-      "image_path": "cards/minor/swords/four.webp",
+      "image_path": "53.png",
       "name": "Four of Swords",
       "keywords": [
         "rest",
@@ -975,12 +975,12 @@
       "description": null
     },
     {
-      "id": 55,
+      "id": 54,
       "arcana": "minor",
       "number": 5,
       "suit": "swords",
       "rank": "five",
-      "image_path": "cards/minor/swords/five.webp",
+      "image_path": "54.png",
       "name": "Five of Swords",
       "keywords": [
         "conflict",
@@ -993,12 +993,12 @@
       "description": null
     },
     {
-      "id": 56,
+      "id": 55,
       "arcana": "minor",
       "number": 6,
       "suit": "swords",
       "rank": "six",
-      "image_path": "cards/minor/swords/six.webp",
+      "image_path": "55.png",
       "name": "Six of Swords",
       "keywords": [
         "transition",
@@ -1011,12 +1011,12 @@
       "description": null
     },
     {
-      "id": 57,
+      "id": 56,
       "arcana": "minor",
       "number": 7,
       "suit": "swords",
       "rank": "seven",
-      "image_path": "cards/minor/swords/seven.webp",
+      "image_path": "56.png",
       "name": "Seven of Swords",
       "keywords": [
         "strategy",
@@ -1029,12 +1029,12 @@
       "description": null
     },
     {
-      "id": 58,
+      "id": 57,
       "arcana": "minor",
       "number": 8,
       "suit": "swords",
       "rank": "eight",
-      "image_path": "cards/minor/swords/eight.webp",
+      "image_path": "57.png",
       "name": "Eight of Swords",
       "keywords": [
         "restriction",
@@ -1047,12 +1047,12 @@
       "description": null
     },
     {
-      "id": 59,
+      "id": 58,
       "arcana": "minor",
       "number": 9,
       "suit": "swords",
       "rank": "nine",
-      "image_path": "cards/minor/swords/nine.webp",
+      "image_path": "58.png",
       "name": "Nine of Swords",
       "keywords": [
         "anxiety",
@@ -1065,12 +1065,12 @@
       "description": null
     },
     {
-      "id": 60,
+      "id": 59,
       "arcana": "minor",
       "number": 10,
       "suit": "swords",
       "rank": "ten",
-      "image_path": "cards/minor/swords/ten.webp",
+      "image_path": "59.png",
       "name": "Ten of Swords",
       "keywords": [
         "ending",
@@ -1083,12 +1083,12 @@
       "description": null
     },
     {
-      "id": 61,
+      "id": 60,
       "arcana": "minor",
       "number": 11,
       "suit": "swords",
       "rank": "page",
-      "image_path": "cards/minor/swords/page.webp",
+      "image_path": "60.png",
       "name": "Page of Swords",
       "keywords": [
         "curiosity",
@@ -1101,12 +1101,12 @@
       "description": null
     },
     {
-      "id": 62,
+      "id": 61,
       "arcana": "minor",
       "number": 12,
       "suit": "swords",
       "rank": "knight",
-      "image_path": "cards/minor/swords/knight.webp",
+      "image_path": "61.png",
       "name": "Knight of Swords",
       "keywords": [
         "directness",
@@ -1119,12 +1119,12 @@
       "description": null
     },
     {
-      "id": 63,
+      "id": 62,
       "arcana": "minor",
       "number": 13,
       "suit": "swords",
       "rank": "queen",
-      "image_path": "cards/minor/swords/queen.webp",
+      "image_path": "62.png",
       "name": "Queen of Swords",
       "keywords": [
         "discernment",
@@ -1137,12 +1137,12 @@
       "description": null
     },
     {
-      "id": 64,
+      "id": 63,
       "arcana": "minor",
       "number": 14,
       "suit": "swords",
       "rank": "king",
-      "image_path": "cards/minor/swords/king.webp",
+      "image_path": "63.png",
       "name": "King of Swords",
       "keywords": [
         "logic",
@@ -1155,12 +1155,12 @@
       "description": null
     },
     {
-      "id": 65,
+      "id": 64,
       "arcana": "minor",
       "number": 1,
       "suit": "pentacles",
       "rank": "ace",
-      "image_path": "cards/minor/pentacles/ace.webp",
+      "image_path": "64.png",
       "name": "Ace of Pentacles",
       "keywords": [
         "opportunity",
@@ -1173,12 +1173,12 @@
       "description": null
     },
     {
-      "id": 66,
+      "id": 65,
       "arcana": "minor",
       "number": 2,
       "suit": "pentacles",
       "rank": "two",
-      "image_path": "cards/minor/pentacles/two.webp",
+      "image_path": "65.png",
       "name": "Two of Pentacles",
       "keywords": [
         "balance",
@@ -1191,12 +1191,12 @@
       "description": null
     },
     {
-      "id": 67,
+      "id": 66,
       "arcana": "minor",
       "number": 3,
       "suit": "pentacles",
       "rank": "three",
-      "image_path": "cards/minor/pentacles/three.webp",
+      "image_path": "66.png",
       "name": "Three of Pentacles",
       "keywords": [
         "teamwork",
@@ -1209,12 +1209,12 @@
       "description": null
     },
     {
-      "id": 68,
+      "id": 67,
       "arcana": "minor",
       "number": 4,
       "suit": "pentacles",
       "rank": "four",
-      "image_path": "cards/minor/pentacles/four.webp",
+      "image_path": "67.png",
       "name": "Four of Pentacles",
       "keywords": [
         "security",
@@ -1227,12 +1227,12 @@
       "description": null
     },
     {
-      "id": 69,
+      "id": 68,
       "arcana": "minor",
       "number": 5,
       "suit": "pentacles",
       "rank": "five",
-      "image_path": "cards/minor/pentacles/five.webp",
+      "image_path": "68.png",
       "name": "Five of Pentacles",
       "keywords": [
         "hardship",
@@ -1245,12 +1245,12 @@
       "description": null
     },
     {
-      "id": 70,
+      "id": 69,
       "arcana": "minor",
       "number": 6,
       "suit": "pentacles",
       "rank": "six",
-      "image_path": "cards/minor/pentacles/six.webp",
+      "image_path": "69.png",
       "name": "Six of Pentacles",
       "keywords": [
         "giving",
@@ -1263,12 +1263,12 @@
       "description": null
     },
     {
-      "id": 71,
+      "id": 70,
       "arcana": "minor",
       "number": 7,
       "suit": "pentacles",
       "rank": "seven",
-      "image_path": "cards/minor/pentacles/seven.webp",
+      "image_path": "70.png",
       "name": "Seven of Pentacles",
       "keywords": [
         "patience",
@@ -1281,12 +1281,12 @@
       "description": null
     },
     {
-      "id": 72,
+      "id": 71,
       "arcana": "minor",
       "number": 8,
       "suit": "pentacles",
       "rank": "eight",
-      "image_path": "cards/minor/pentacles/eight.webp",
+      "image_path": "71.png",
       "name": "Eight of Pentacles",
       "keywords": [
         "practice",
@@ -1299,12 +1299,12 @@
       "description": null
     },
     {
-      "id": 73,
+      "id": 72,
       "arcana": "minor",
       "number": 9,
       "suit": "pentacles",
       "rank": "nine",
-      "image_path": "cards/minor/pentacles/nine.webp",
+      "image_path": "72.png",
       "name": "Nine of Pentacles",
       "keywords": [
         "independence",
@@ -1317,12 +1317,12 @@
       "description": null
     },
     {
-      "id": 74,
+      "id": 73,
       "arcana": "minor",
       "number": 10,
       "suit": "pentacles",
       "rank": "ten",
-      "image_path": "cards/minor/pentacles/ten.webp",
+      "image_path": "73.png",
       "name": "Ten of Pentacles",
       "keywords": [
         "legacy",
@@ -1335,12 +1335,12 @@
       "description": null
     },
     {
-      "id": 75,
+      "id": 74,
       "arcana": "minor",
       "number": 11,
       "suit": "pentacles",
       "rank": "page",
-      "image_path": "cards/minor/pentacles/page.webp",
+      "image_path": "74.png",
       "name": "Page of Pentacles",
       "keywords": [
         "study",
@@ -1353,12 +1353,12 @@
       "description": null
     },
     {
-      "id": 76,
+      "id": 75,
       "arcana": "minor",
       "number": 12,
       "suit": "pentacles",
       "rank": "knight",
-      "image_path": "cards/minor/pentacles/knight.webp",
+      "image_path": "75.png",
       "name": "Knight of Pentacles",
       "keywords": [
         "steadiness",
@@ -1371,12 +1371,12 @@
       "description": null
     },
     {
-      "id": 77,
+      "id": 76,
       "arcana": "minor",
       "number": 13,
       "suit": "pentacles",
       "rank": "queen",
-      "image_path": "cards/minor/pentacles/queen.webp",
+      "image_path": "76.png",
       "name": "Queen of Pentacles",
       "keywords": [
         "care",
@@ -1389,12 +1389,12 @@
       "description": null
     },
     {
-      "id": 78,
+      "id": 77,
       "arcana": "minor",
       "number": 14,
       "suit": "pentacles",
       "rank": "king",
-      "image_path": "cards/minor/pentacles/king.webp",
+      "image_path": "77.png",
       "name": "King of Pentacles",
       "keywords": [
         "abundance",

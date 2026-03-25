@@ -1,0 +1,179 @@
+/* Minimal styling for a small Flask + Jinja + HTMX-friendly app. */
+
+:root {
+  --bg: #09090b;        /* zinc-950-ish */
+  --panel: #0b0b0f;
+  --border: #27272a;    /* zinc-800-ish */
+  --border-2: #3f3f46;  /* zinc-700-ish */
+  --text: #fafafa;
+  --muted: #a1a1aa;     /* zinc-400-ish */
+  --muted-2: #71717a;   /* zinc-500-ish */
+  --highlight: #18181b; /* zinc-900-ish */
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: none; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 650;
+}
+
+.row { display: flex; align-items: center; gap: 10px; }
+.muted { color: var(--muted); font-size: 14px; }
+
+.pill {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  font-size: 14px;
+}
+.pill:hover { border-color: var(--muted-2); }
+.pill.is-active { background: var(--highlight); }
+
+.panel {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  background: transparent;
+}
+
+.grid-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 900px) {
+  .grid-top { grid-template-columns: 1fr 2fr; gap: 24px; }
+}
+
+.section-title {
+  font-weight: 600;
+  color: #d4d4d8; /* zinc-300-ish */
+  margin-bottom: 12px;
+}
+
+.major-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+@media (min-width: 640px) {
+  .major-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.major-item {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+}
+.major-item:hover { border-color: #52525b; }
+.major-item.is-active { background: var(--highlight); }
+.major-id { font-size: 13px; font-weight: 650; }
+.major-name { font-size: 12px; color: #d4d4d8; margin-top: 2px; }
+
+.suits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hint { margin: 14px 0 0; font-size: 14px; color: var(--muted-2); }
+
+.minor-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 640px) {
+  .minor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .minor-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.card {
+  border: 1px solid #18181b;
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  display: block;
+}
+
+.card-title { font-weight: 650; font-size: 14px; }
+.small { font-size: 12px; color: var(--muted-2); }
+
+.details summary {
+  cursor: pointer;
+  color: #e4e4e7;
+}
+.details .meaning {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .bottom-grid { grid-template-columns: 1fr 2fr; gap: 24px; }
+}
+
+.info-block { display: grid; gap: 6px; }
+.label { font-size: 13px; color: var(--muted); }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+.meaning-panels { display: grid; gap: 12px; }
+.meaning-panel { border: 1px solid var(--border); border-radius: 12px; padding: 12px; background: transparent; }
+.meaning-title { font-weight: 650; font-size: 14px; }
+.meaning-text { margin-top: 6px; color: #e4e4e7; font-size: 14px; }
+

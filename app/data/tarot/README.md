@@ -9,7 +9,7 @@ Even though fields like `arcana/suit/rank/image_path` are language-neutral, they
 
 ## Conventions (`cards.<locale>.json`)
 - `id`
-  - Numeric card identifier `1..78` (this is the primary key)
+  - Numeric card identifier `0..77` (this is the primary key)
 - `arcana`
   - `"major"` or `"minor"`
 - `number`

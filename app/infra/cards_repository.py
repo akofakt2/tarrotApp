@@ -46,19 +46,24 @@ def _parse_cards_payload(payload: dict[str, Any]) -> list[Card]:
     return cards
 
 
-def _validate_static_assets(cards: list[Card]) -> list[str]:
+def _validate_static_assets(*, cards: list[Card], images_dir: str) -> list[str]:
     warnings: list[str] = []
     static_root = _static_root()
     for c in cards:
-        img = static_root / c.image_path
+        img = static_root / images_dir / c.image_path
         if not img.exists():
-            warnings.append(f"Missing image for {c.id}: {c.image_path}")
+            warnings.append(f"Missing image for {c.id}: {images_dir}/{c.image_path}")
     return warnings
 
 
 @lru_cache(maxsize=1)
 def load_cards_repository(
-    *, locale: str = "sk", fallback_locale: str = "sk", validate_images: bool = False
+    *,
+    locale: str = "sk",
+    fallback_locale: str = "sk",
+    validate_images: bool = False,
+    card_set: str = "default",
+    images_base_dir: str = "cards",
 ) -> CardsRepository:
     locale_path = _cards_i18n_json_path(locale)
     if not locale_path.exists():
@@ -68,7 +73,8 @@ def load_cards_repository(
     cards = _parse_cards_payload(payload)
 
     if validate_images:
-        warnings = _validate_static_assets(cards)
+        images_dir = f"{images_base_dir}/{card_set}".strip("/")
+        warnings = _validate_static_assets(cards=cards, images_dir=images_dir)
         if warnings:
             joined = "\n".join(warnings[:10])
             more = "" if len(warnings) <= 10 else f"\n... and {len(warnings) - 10} more"

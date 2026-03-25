@@ -79,6 +79,6 @@ def validate_cards(cards: list[Card]) -> None:
         raise ValueError(f"Expected 78 cards, got {len(cards)}")
 
     ids = [c.id for c in cards]
-    if sorted(ids) != list(range(1, 79)):
-        raise ValueError("id must be a unique continuous range 1..78")
+    if sorted(ids) != list(range(0, 78)):
+        raise ValueError("id must be a unique continuous range 0..77")
 

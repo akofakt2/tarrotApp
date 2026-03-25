@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import os
+import re
 from pathlib import Path
 from typing import Any
 
@@ -29,11 +31,22 @@ def create_app() -> Flask:
         static_folder=str(static_folder),
     )
 
+    app.config["TAROT_CARD_SET"] = os.getenv("TAROT_CARD_SET", "default")
+    app.config["TAROT_CARD_IMAGES_BASE_DIR"] = os.getenv("TAROT_CARD_IMAGES_BASE_DIR", "cards")
+
     @app.get("/cards")
     def cards_catalog() -> str:
         locale = (request.args.get("locale") or "en").lower()
         if locale not in {"en", "sk"}:
             abort(400, "Unsupported locale")
+
+        card_set = (request.args.get("set") or app.config.get("TAROT_CARD_SET") or "default").strip().lower()
+        if not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", card_set):
+            abort(400, "Unsupported card set")
+        images_base_dir = (app.config.get("TAROT_CARD_IMAGES_BASE_DIR") or "cards").strip().strip("/")
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_/-]*", images_base_dir):
+            abort(500, "Invalid TAROT_CARD_IMAGES_BASE_DIR")
+        card_images_dir = f"{images_base_dir}/{card_set}".strip("/")
 
         suit = request.args.get("suit")
         if suit is not None and suit.lower() in {"none", ""}:
@@ -59,7 +72,13 @@ def create_app() -> Flask:
         upright_heading = card_detail.get("upright_heading", "Upright")
         reversed_heading = card_detail.get("reversed_heading", "Reversed")
 
-        repo = load_cards_repository(locale=locale, fallback_locale="sk", validate_images=False)
+        repo = load_cards_repository(
+            locale=locale,
+            fallback_locale="sk",
+            validate_images=False,
+            card_set=card_set,
+            images_base_dir=images_base_dir,
+        )
         cards = repo.list_all()
 
         major_cards = sorted((c for c in cards if c.arcana == "major"), key=lambda c: c.id)
@@ -86,6 +105,8 @@ def create_app() -> Flask:
         return render_template(
             "cards/catalog.html",
             locale=locale,
+            card_set=card_set,
+            card_images_dir=card_images_dir,
             major_cards=major_cards,
             suits=suits,
             selected_suit=suit,
