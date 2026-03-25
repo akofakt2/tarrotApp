@@ -1,0 +1,1098 @@
+{
+  "version": 1,
+  "locale": "en",
+  "cards": [
+    {
+      "card_no": 1,
+      "id": "major_00_the_fool",
+      "name": "The Fool",
+      "keywords": [
+        "beginnings",
+        "innocence",
+        "leap_of_faith"
+      ],
+      "meaning_upright": "New beginnings, spontaneity, and trusting the journey.",
+      "meaning_reversed": "Recklessness, naivety, or hesitation to start.",
+      "archetype": "The Seeker",
+      "description": "A step into the unknown with openness and curiosity."
+    },
+    {
+      "card_no": 2,
+      "id": "major_01_the_magician",
+      "name": "The Magician",
+      "keywords": [
+        "will",
+        "skill",
+        "manifestation"
+      ],
+      "meaning_upright": "Focused intent, skillful action, and making things happen.",
+      "meaning_reversed": "Scattered energy, manipulation, or untapped potential.",
+      "archetype": "The Creator",
+      "description": "Aligning tools, will, and attention to create change."
+    },
+    {
+      "card_no": 3,
+      "id": "major_02_the_high_priestess",
+      "name": "The High Priestess",
+      "keywords": [
+        "intuition",
+        "mystery",
+        "inner_voice"
+      ],
+      "meaning_upright": "Intuition, inner knowing, and hidden truths.",
+      "meaning_reversed": "Ignoring intuition, confusion, or secrets kept too long.",
+      "archetype": "The Mystic",
+      "description": "A quiet invitation to listen beneath the surface."
+    },
+    {
+      "card_no": 4,
+      "id": "major_03_the_empress",
+      "name": "The Empress",
+      "keywords": [
+        "nurture",
+        "abundance",
+        "growth"
+      ],
+      "meaning_upright": "Nurturing growth, creativity, and abundance.",
+      "meaning_reversed": "Creative block, neglect, or over-dependence.",
+      "archetype": "The Mother",
+      "description": "Care, beauty, and the power of cultivation."
+    },
+    {
+      "card_no": 5,
+      "id": "major_04_the_emperor",
+      "name": "The Emperor",
+      "keywords": [
+        "structure",
+        "authority",
+        "stability"
+      ],
+      "meaning_upright": "Structure, leadership, and stable foundations.",
+      "meaning_reversed": "Rigidity, control issues, or instability in authority.",
+      "archetype": "The Ruler",
+      "description": "Order and protection through clear boundaries."
+    },
+    {
+      "card_no": 6,
+      "id": "major_05_the_hierophant",
+      "name": "The Hierophant",
+      "keywords": [
+        "tradition",
+        "teaching",
+        "beliefs"
+      ],
+      "meaning_upright": "Tradition, mentorship, and shared values.",
+      "meaning_reversed": "Rebellion, dogma, or questioning old rules.",
+      "archetype": "The Teacher",
+      "description": "Learning within a lineage of meaning and practice."
+    },
+    {
+      "card_no": 7,
+      "id": "major_06_the_lovers",
+      "name": "The Lovers",
+      "keywords": [
+        "choice",
+        "union",
+        "values_alignment"
+      ],
+      "meaning_upright": "Union, meaningful choice, and value alignment.",
+      "meaning_reversed": "Disharmony, misalignment, or fear of commitment.",
+      "archetype": "The Beloved",
+      "description": "Choosing with the heart and living your values."
+    },
+    {
+      "card_no": 8,
+      "id": "major_07_the_chariot",
+      "name": "The Chariot",
+      "keywords": [
+        "drive",
+        "victory",
+        "self_control"
+      ],
+      "meaning_upright": "Determination, momentum, and disciplined progress.",
+      "meaning_reversed": "Lack of direction, conflicting forces, or burnout.",
+      "archetype": "The Victor",
+      "description": "Harnessing opposing energies to move forward."
+    },
+    {
+      "card_no": 9,
+      "id": "major_08_strength",
+      "name": "Strength",
+      "keywords": [
+        "courage",
+        "patience",
+        "inner_power"
+      ],
+      "meaning_upright": "Courage, patience, and gentle inner power.",
+      "meaning_reversed": "Self-doubt, impatience, or force over finesse.",
+      "archetype": "The Heart",
+      "description": "Taming fear through compassion and steadiness."
+    },
+    {
+      "card_no": 10,
+      "id": "major_09_the_hermit",
+      "name": "The Hermit",
+      "keywords": [
+        "solitude",
+        "wisdom",
+        "guidance"
+      ],
+      "meaning_upright": "Solitude, insight, and inner guidance.",
+      "meaning_reversed": "Isolation, avoidance, or refusing help.",
+      "archetype": "The Sage",
+      "description": "Stepping back to see clearly."
+    },
+    {
+      "card_no": 11,
+      "id": "major_10_wheel_of_fortune",
+      "name": "Wheel of Fortune",
+      "keywords": [
+        "cycles",
+        "change",
+        "destiny"
+      ],
+      "meaning_upright": "Turning points, cycles, and shifts in luck.",
+      "meaning_reversed": "Resistance to change, delays, or repeating patterns.",
+      "archetype": "The Wheel",
+      "description": "Life moves\u2014adapt and meet the moment."
+    },
+    {
+      "card_no": 12,
+      "id": "major_11_justice",
+      "name": "Justice",
+      "keywords": [
+        "truth",
+        "fairness",
+        "accountability"
+      ],
+      "meaning_upright": "Truth, fairness, and responsible choices.",
+      "meaning_reversed": "Bias, denial, or avoiding consequences.",
+      "archetype": "The Judge",
+      "description": "Seeing clearly and acting with integrity."
+    },
+    {
+      "card_no": 13,
+      "id": "major_12_the_hanged_man",
+      "name": "The Hanged Man",
+      "keywords": [
+        "pause",
+        "new_perspective",
+        "surrender"
+      ],
+      "meaning_upright": "Pause, surrender, and a fresh perspective.",
+      "meaning_reversed": "Stalling, stubbornness, or fear of letting go.",
+      "archetype": "The Initiate",
+      "description": "The gift of seeing differently."
+    },
+    {
+      "card_no": 14,
+      "id": "major_13_death",
+      "name": "Death",
+      "keywords": [
+        "endings",
+        "transformation",
+        "release"
+      ],
+      "meaning_upright": "Endings that make room for transformation.",
+      "meaning_reversed": "Clinging, fear of change, or prolonged transition.",
+      "archetype": "The Transformer",
+      "description": "Release what is done; renew what remains."
+    },
+    {
+      "card_no": 15,
+      "id": "major_14_temperance",
+      "name": "Temperance",
+      "keywords": [
+        "balance",
+        "healing",
+        "moderation"
+      ],
+      "meaning_upright": "Balance, healing, and measured integration.",
+      "meaning_reversed": "Excess, imbalance, or lack of harmony.",
+      "archetype": "The Alchemist",
+      "description": "Blend extremes into something whole."
+    },
+    {
+      "card_no": 16,
+      "id": "major_15_the_devil",
+      "name": "The Devil",
+      "keywords": [
+        "attachment",
+        "shadow",
+        "temptation"
+      ],
+      "meaning_upright": "Attachments, temptation, and confronting the shadow.",
+      "meaning_reversed": "Breaking free, reclaiming power, or denial of issues.",
+      "archetype": "The Shadow",
+      "description": "See the chain to loosen it."
+    },
+    {
+      "card_no": 17,
+      "id": "major_16_the_tower",
+      "name": "The Tower",
+      "keywords": [
+        "revelation",
+        "upheaval",
+        "reset"
+      ],
+      "meaning_upright": "Upheaval, revelation, and clearing false structures.",
+      "meaning_reversed": "Avoiding the inevitable, prolonged disruption, or fear.",
+      "archetype": "The Lightning",
+      "description": "Truth strikes\u2014rebuild on what is real."
+    },
+    {
+      "card_no": 18,
+      "id": "major_17_the_star",
+      "name": "The Star",
+      "keywords": [
+        "hope",
+        "renewal",
+        "guidance"
+      ],
+      "meaning_upright": "Hope, renewal, and a guiding light ahead.",
+      "meaning_reversed": "Discouragement, doubt, or dimmed optimism.",
+      "archetype": "The Guide",
+      "description": "A quiet yes from the future."
+    },
+    {
+      "card_no": 19,
+      "id": "major_18_the_moon",
+      "name": "The Moon",
+      "keywords": [
+        "illusion",
+        "intuition",
+        "uncertainty"
+      ],
+      "meaning_upright": "Uncertainty, intuition, and navigating the unknown.",
+      "meaning_reversed": "Clarity emerging, fear easing, or self-deception exposed.",
+      "archetype": "The Dream",
+      "description": "Not everything is clear\u2014move by inner light."
+    },
+    {
+      "card_no": 20,
+      "id": "major_19_the_sun",
+      "name": "The Sun",
+      "keywords": [
+        "joy",
+        "success",
+        "vitality"
+      ],
+      "meaning_upright": "Joy, vitality, and confident success.",
+      "meaning_reversed": "Temporary setbacks, pessimism, or muted confidence.",
+      "archetype": "The Light",
+      "description": "Warmth, visibility, and truth in daylight."
+    },
+    {
+      "card_no": 21,
+      "id": "major_20_judgement",
+      "name": "Judgement",
+      "keywords": [
+        "awakening",
+        "review",
+        "calling"
+      ],
+      "meaning_upright": "Awakening, review, and answering a calling.",
+      "meaning_reversed": "Self-doubt, harsh judgment, or avoiding a decision.",
+      "archetype": "The Call",
+      "description": "Choose your next chapter with honesty."
+    },
+    {
+      "card_no": 22,
+      "id": "major_21_the_world",
+      "name": "The World",
+      "keywords": [
+        "completion",
+        "integration",
+        "mastery"
+      ],
+      "meaning_upright": "Completion, integration, and a sense of wholeness.",
+      "meaning_reversed": "Loose ends, delay, or incomplete closure.",
+      "archetype": "The Whole",
+      "description": "You arrive, and a new cycle begins."
+    },
+    {
+      "card_no": 23,
+      "id": "minor_wands_ace",
+      "name": "Ace of Wands",
+      "keywords": [
+        "spark",
+        "inspiration",
+        "initiative"
+      ],
+      "meaning_upright": "A new spark of inspiration and the urge to begin.",
+      "meaning_reversed": "Delays, lack of motivation, or a spark that fizzles.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 24,
+      "id": "minor_wands_two",
+      "name": "Two of Wands",
+      "keywords": [
+        "planning",
+        "options",
+        "vision"
+      ],
+      "meaning_upright": "Planning the next step and widening your horizon.",
+      "meaning_reversed": "Fear of the unknown or playing it too safe.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 25,
+      "id": "minor_wands_three",
+      "name": "Three of Wands",
+      "keywords": [
+        "expansion",
+        "progress",
+        "momentum"
+      ],
+      "meaning_upright": "Expansion, progress, and results beginning to show.",
+      "meaning_reversed": "Delays, setbacks, or lack of follow-through.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 26,
+      "id": "minor_wands_four",
+      "name": "Four of Wands",
+      "keywords": [
+        "celebration",
+        "home",
+        "milestone"
+      ],
+      "meaning_upright": "Celebration, stability, and a joyful milestone.",
+      "meaning_reversed": "Tension at home or a celebration that feels off.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 27,
+      "id": "minor_wands_five",
+      "name": "Five of Wands",
+      "keywords": [
+        "competition",
+        "friction",
+        "testing"
+      ],
+      "meaning_upright": "Competition, friction, and learning through challenge.",
+      "meaning_reversed": "Avoiding conflict or arguments that go nowhere.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 28,
+      "id": "minor_wands_six",
+      "name": "Six of Wands",
+      "keywords": [
+        "recognition",
+        "success",
+        "confidence"
+      ],
+      "meaning_upright": "Recognition, success, and earned confidence.",
+      "meaning_reversed": "Ego, insecurity, or success not acknowledged.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 29,
+      "id": "minor_wands_seven",
+      "name": "Seven of Wands",
+      "keywords": [
+        "defense",
+        "courage",
+        "boundaries"
+      ],
+      "meaning_upright": "Standing your ground and protecting your position.",
+      "meaning_reversed": "Giving up too soon or feeling overwhelmed.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 30,
+      "id": "minor_wands_eight",
+      "name": "Eight of Wands",
+      "keywords": [
+        "speed",
+        "movement",
+        "messages"
+      ],
+      "meaning_upright": "Speed, movement, and swift developments.",
+      "meaning_reversed": "Delays, miscommunication, or scattered effort.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 31,
+      "id": "minor_wands_nine",
+      "name": "Nine of Wands",
+      "keywords": [
+        "resilience",
+        "persistence",
+        "guarded"
+      ],
+      "meaning_upright": "Resilience and persistence despite fatigue.",
+      "meaning_reversed": "Burnout, defensiveness, or refusing support.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 32,
+      "id": "minor_wands_ten",
+      "name": "Ten of Wands",
+      "keywords": [
+        "burden",
+        "responsibility",
+        "pressure"
+      ],
+      "meaning_upright": "Heavy responsibility and carrying too much.",
+      "meaning_reversed": "Delegating, release, or collapse under pressure.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 33,
+      "id": "minor_wands_page",
+      "name": "Page of Wands",
+      "keywords": [
+        "curiosity",
+        "exploration",
+        "news"
+      ],
+      "meaning_upright": "Curiosity, exploration, and exciting news.",
+      "meaning_reversed": "Impulsiveness, delays, or lack of direction.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 34,
+      "id": "minor_wands_knight",
+      "name": "Knight of Wands",
+      "keywords": [
+        "adventure",
+        "boldness",
+        "movement"
+      ],
+      "meaning_upright": "Bold action, adventure, and forward movement.",
+      "meaning_reversed": "Recklessness, impatience, or inconsistency.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 35,
+      "id": "minor_wands_queen",
+      "name": "Queen of Wands",
+      "keywords": [
+        "confidence",
+        "warmth",
+        "leadership"
+      ],
+      "meaning_upright": "Confidence, warmth, and inspiring leadership.",
+      "meaning_reversed": "Insecurity, jealousy, or demanding attention.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 36,
+      "id": "minor_wands_king",
+      "name": "King of Wands",
+      "keywords": [
+        "vision",
+        "mastery",
+        "courage"
+      ],
+      "meaning_upright": "Visionary leadership and creative mastery.",
+      "meaning_reversed": "Impulsiveness, arrogance, or domineering energy.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 37,
+      "id": "minor_cups_ace",
+      "name": "Ace of Cups",
+      "keywords": [
+        "love",
+        "openness",
+        "renewal"
+      ],
+      "meaning_upright": "Emotional renewal, love, and an open heart.",
+      "meaning_reversed": "Blocked feelings or difficulty receiving love.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 38,
+      "id": "minor_cups_two",
+      "name": "Two of Cups",
+      "keywords": [
+        "connection",
+        "partnership",
+        "union"
+      ],
+      "meaning_upright": "Connection, partnership, and mutual exchange.",
+      "meaning_reversed": "Imbalance, miscommunication, or tension in bonds.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 39,
+      "id": "minor_cups_three",
+      "name": "Three of Cups",
+      "keywords": [
+        "friendship",
+        "celebration",
+        "support"
+      ],
+      "meaning_upright": "Friendship, celebration, and shared support.",
+      "meaning_reversed": "Overindulgence or social drama.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 40,
+      "id": "minor_cups_four",
+      "name": "Four of Cups",
+      "keywords": [
+        "apathy",
+        "reflection",
+        "reevaluate"
+      ],
+      "meaning_upright": "Apathy, reflection, and reevaluating options.",
+      "meaning_reversed": "New interest, re-engagement, or a fresh offer.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 41,
+      "id": "minor_cups_five",
+      "name": "Five of Cups",
+      "keywords": [
+        "loss",
+        "grief",
+        "regret"
+      ],
+      "meaning_upright": "Loss, grief, and focusing on what went wrong.",
+      "meaning_reversed": "Acceptance, healing, and seeing what remains.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 42,
+      "id": "minor_cups_six",
+      "name": "Six of Cups",
+      "keywords": [
+        "nostalgia",
+        "innocence",
+        "memories"
+      ],
+      "meaning_upright": "Nostalgia, kindness, and gentle memories.",
+      "meaning_reversed": "Being stuck in the past or idealizing.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 43,
+      "id": "minor_cups_seven",
+      "name": "Seven of Cups",
+      "keywords": [
+        "choices",
+        "fantasy",
+        "illusion"
+      ],
+      "meaning_upright": "Many choices, fantasies, and unclear priorities.",
+      "meaning_reversed": "Clarity, decision, and focus returning.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 44,
+      "id": "minor_cups_eight",
+      "name": "Eight of Cups",
+      "keywords": [
+        "walking_away",
+        "search",
+        "transition"
+      ],
+      "meaning_upright": "Walking away to seek deeper meaning.",
+      "meaning_reversed": "Fear of change or returning after learning.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 45,
+      "id": "minor_cups_nine",
+      "name": "Nine of Cups",
+      "keywords": [
+        "satisfaction",
+        "wish",
+        "contentment"
+      ],
+      "meaning_upright": "Satisfaction, contentment, and a wish fulfilled.",
+      "meaning_reversed": "Overindulgence or dissatisfaction beneath comfort.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 46,
+      "id": "minor_cups_ten",
+      "name": "Ten of Cups",
+      "keywords": [
+        "harmony",
+        "family",
+        "joy"
+      ],
+      "meaning_upright": "Harmony, joy, and emotional fulfillment.",
+      "meaning_reversed": "Misalignment at home or unrealistic expectations.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 47,
+      "id": "minor_cups_page",
+      "name": "Page of Cups",
+      "keywords": [
+        "messages",
+        "openness",
+        "surprise"
+      ],
+      "meaning_upright": "A heartfelt message and open emotional curiosity.",
+      "meaning_reversed": "Emotional immaturity or mixed signals.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 48,
+      "id": "minor_cups_knight",
+      "name": "Knight of Cups",
+      "keywords": [
+        "romance",
+        "invitation",
+        "idealism"
+      ],
+      "meaning_upright": "Romance, invitations, and following the heart.",
+      "meaning_reversed": "Moodiness, disappointment, or chasing illusions.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 49,
+      "id": "minor_cups_queen",
+      "name": "Queen of Cups",
+      "keywords": [
+        "empathy",
+        "intuition",
+        "care"
+      ],
+      "meaning_upright": "Empathy, intuition, and emotional care.",
+      "meaning_reversed": "Overwhelm, co-dependency, or poor boundaries.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 50,
+      "id": "minor_cups_king",
+      "name": "King of Cups",
+      "keywords": [
+        "calm",
+        "compassion",
+        "balance"
+      ],
+      "meaning_upright": "Calm compassion and emotional balance.",
+      "meaning_reversed": "Emotional manipulation or suppressed feelings.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 51,
+      "id": "minor_swords_ace",
+      "name": "Ace of Swords",
+      "keywords": [
+        "clarity",
+        "truth",
+        "breakthrough"
+      ],
+      "meaning_upright": "Clarity, truth, and a mental breakthrough.",
+      "meaning_reversed": "Confusion, misinformation, or cloudy judgment.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 52,
+      "id": "minor_swords_two",
+      "name": "Two of Swords",
+      "keywords": [
+        "stalemate",
+        "choice",
+        "avoidance"
+      ],
+      "meaning_upright": "Stalemate, difficult choice, and guardedness.",
+      "meaning_reversed": "Indecision ends, truth revealed, or overload.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 53,
+      "id": "minor_swords_three",
+      "name": "Three of Swords",
+      "keywords": [
+        "heartbreak",
+        "sorrow",
+        "truth"
+      ],
+      "meaning_upright": "Heartbreak, sorrow, and hard truths.",
+      "meaning_reversed": "Healing, forgiveness, and moving on.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 54,
+      "id": "minor_swords_four",
+      "name": "Four of Swords",
+      "keywords": [
+        "rest",
+        "recovery",
+        "pause"
+      ],
+      "meaning_upright": "Rest, recovery, and a necessary pause.",
+      "meaning_reversed": "Restlessness or returning too soon.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 55,
+      "id": "minor_swords_five",
+      "name": "Five of Swords",
+      "keywords": [
+        "conflict",
+        "ego",
+        "win_at_all_costs"
+      ],
+      "meaning_upright": "Conflict, ego, and winning at a cost.",
+      "meaning_reversed": "Reconciliation or walking away from drama.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 56,
+      "id": "minor_swords_six",
+      "name": "Six of Swords",
+      "keywords": [
+        "transition",
+        "healing",
+        "moving_on"
+      ],
+      "meaning_upright": "Transition, healing, and moving toward calmer waters.",
+      "meaning_reversed": "Difficulty moving on or carrying old baggage.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 57,
+      "id": "minor_swords_seven",
+      "name": "Seven of Swords",
+      "keywords": [
+        "strategy",
+        "secrecy",
+        "avoidance"
+      ],
+      "meaning_upright": "Strategy, secrecy, and acting indirectly.",
+      "meaning_reversed": "Confession, exposure, or changing tactics.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 58,
+      "id": "minor_swords_eight",
+      "name": "Eight of Swords",
+      "keywords": [
+        "restriction",
+        "fear",
+        "self_limiting"
+      ],
+      "meaning_upright": "Feeling restricted by fear or self-limiting beliefs.",
+      "meaning_reversed": "Release, new perspective, and loosening bonds.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 59,
+      "id": "minor_swords_nine",
+      "name": "Nine of Swords",
+      "keywords": [
+        "anxiety",
+        "worry",
+        "sleeplessness"
+      ],
+      "meaning_upright": "Anxiety, worry, and sleepless nights.",
+      "meaning_reversed": "Relief, support, or confronting fears.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 60,
+      "id": "minor_swords_ten",
+      "name": "Ten of Swords",
+      "keywords": [
+        "ending",
+        "betrayal",
+        "release"
+      ],
+      "meaning_upright": "An ending, painful truth, and release.",
+      "meaning_reversed": "Recovery, resilience, and rising again.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 61,
+      "id": "minor_swords_page",
+      "name": "Page of Swords",
+      "keywords": [
+        "curiosity",
+        "truth_seeking",
+        "alertness"
+      ],
+      "meaning_upright": "Curiosity, truth-seeking, and mental alertness.",
+      "meaning_reversed": "Gossip, haste, or jumping to conclusions.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 62,
+      "id": "minor_swords_knight",
+      "name": "Knight of Swords",
+      "keywords": [
+        "directness",
+        "speed",
+        "drive"
+      ],
+      "meaning_upright": "Direct action, speed, and decisive thinking.",
+      "meaning_reversed": "Impulsiveness, harshness, or rushing blindly.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 63,
+      "id": "minor_swords_queen",
+      "name": "Queen of Swords",
+      "keywords": [
+        "discernment",
+        "independence",
+        "clarity"
+      ],
+      "meaning_upright": "Discernment, independence, and clear boundaries.",
+      "meaning_reversed": "Coldness, bitterness, or cutting words.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 64,
+      "id": "minor_swords_king",
+      "name": "King of Swords",
+      "keywords": [
+        "logic",
+        "authority",
+        "truth"
+      ],
+      "meaning_upright": "Logic, authority, and principled truth.",
+      "meaning_reversed": "Abuse of power or rigid, unfair judgment.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 65,
+      "id": "minor_pentacles_ace",
+      "name": "Ace of Pentacles",
+      "keywords": [
+        "opportunity",
+        "growth",
+        "resources"
+      ],
+      "meaning_upright": "A tangible opportunity and seed of prosperity.",
+      "meaning_reversed": "Missed chance or unstable foundations.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 66,
+      "id": "minor_pentacles_two",
+      "name": "Two of Pentacles",
+      "keywords": [
+        "balance",
+        "adaptation",
+        "juggling"
+      ],
+      "meaning_upright": "Balancing priorities and adapting to change.",
+      "meaning_reversed": "Overcommitment or losing balance.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 67,
+      "id": "minor_pentacles_three",
+      "name": "Three of Pentacles",
+      "keywords": [
+        "teamwork",
+        "craft",
+        "learning"
+      ],
+      "meaning_upright": "Teamwork, craftsmanship, and learning by doing.",
+      "meaning_reversed": "Lack of collaboration or sloppy work.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 68,
+      "id": "minor_pentacles_four",
+      "name": "Four of Pentacles",
+      "keywords": [
+        "security",
+        "control",
+        "holding_on"
+      ],
+      "meaning_upright": "Security, control, and holding on tightly.",
+      "meaning_reversed": "Letting go or fear of loss driving decisions.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 69,
+      "id": "minor_pentacles_five",
+      "name": "Five of Pentacles",
+      "keywords": [
+        "hardship",
+        "lack",
+        "support"
+      ],
+      "meaning_upright": "Hardship, lack, and seeking support.",
+      "meaning_reversed": "Recovery, assistance, and improving conditions.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 70,
+      "id": "minor_pentacles_six",
+      "name": "Six of Pentacles",
+      "keywords": [
+        "giving",
+        "receiving",
+        "fairness"
+      ],
+      "meaning_upright": "Giving and receiving with fairness and care.",
+      "meaning_reversed": "Strings attached or imbalance in exchange.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 71,
+      "id": "minor_pentacles_seven",
+      "name": "Seven of Pentacles",
+      "keywords": [
+        "patience",
+        "investment",
+        "assessment"
+      ],
+      "meaning_upright": "Patience, long-term investment, and assessment.",
+      "meaning_reversed": "Impatience or doubting progress too soon.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 72,
+      "id": "minor_pentacles_eight",
+      "name": "Eight of Pentacles",
+      "keywords": [
+        "practice",
+        "skill",
+        "dedication"
+      ],
+      "meaning_upright": "Practice, dedication, and improving a craft.",
+      "meaning_reversed": "Cutting corners or boredom with routine.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 73,
+      "id": "minor_pentacles_nine",
+      "name": "Nine of Pentacles",
+      "keywords": [
+        "independence",
+        "comfort",
+        "self_worth"
+      ],
+      "meaning_upright": "Independence, comfort, and self-worth.",
+      "meaning_reversed": "Overreliance or insecurity despite success.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 74,
+      "id": "minor_pentacles_ten",
+      "name": "Ten of Pentacles",
+      "keywords": [
+        "legacy",
+        "family",
+        "stability"
+      ],
+      "meaning_upright": "Legacy, family stability, and long-term security.",
+      "meaning_reversed": "Instability in foundations or family tensions.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 75,
+      "id": "minor_pentacles_page",
+      "name": "Page of Pentacles",
+      "keywords": [
+        "study",
+        "opportunity",
+        "planning"
+      ],
+      "meaning_upright": "Study, new opportunity, and grounded planning.",
+      "meaning_reversed": "Procrastination or lack of follow-through.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 76,
+      "id": "minor_pentacles_knight",
+      "name": "Knight of Pentacles",
+      "keywords": [
+        "steadiness",
+        "routine",
+        "reliability"
+      ],
+      "meaning_upright": "Steady progress and reliable effort.",
+      "meaning_reversed": "Stagnation or stubborn attachment to routine.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 77,
+      "id": "minor_pentacles_queen",
+      "name": "Queen of Pentacles",
+      "keywords": [
+        "care",
+        "practicality",
+        "home"
+      ],
+      "meaning_upright": "Practical care, comfort, and grounded nurture.",
+      "meaning_reversed": "Work-home imbalance or neglecting self-care.",
+      "archetype": null,
+      "description": null
+    },
+    {
+      "card_no": 78,
+      "id": "minor_pentacles_king",
+      "name": "King of Pentacles",
+      "keywords": [
+        "abundance",
+        "stability",
+        "provider"
+      ],
+      "meaning_upright": "Abundance, stability, and responsible provision.",
+      "meaning_reversed": "Materialism or using resources to control.",
+      "archetype": null,
+      "description": null
+    }
+  ]
+}
