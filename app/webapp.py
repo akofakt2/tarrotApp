@@ -41,17 +41,17 @@ def create_app() -> Flask:
         if suit is not None and suit not in {"wands", "cups", "swords", "pentacles"}:
             abort(400, "Unsupported suit")
 
-        card_no_raw = request.args.get("card_no")
-        card_no = None
-        if card_no_raw and card_no_raw.lower() not in {"none", ""}:
+        card_id_raw = request.args.get("id")
+        card_id = None
+        if card_id_raw and card_id_raw.lower() not in {"none", ""}:
             try:
-                card_no = int(card_no_raw)
+                card_id = int(card_id_raw)
             except ValueError:
-                abort(400, "card_no must be an integer")
+                abort(400, "id must be an integer")
 
         # If a major card is explicitly selected, show major detail even if `suit`
         # is present in the query string (e.g. after switching suits earlier).
-        if card_no is not None:
+        if card_id is not None:
             suit = None
 
         pages = _load_pages(locale, fallback_locale="sk")
@@ -62,13 +62,13 @@ def create_app() -> Flask:
         repo = load_cards_repository(locale=locale, fallback_locale="sk", validate_images=False)
         cards = repo.list_all()
 
-        major_cards = sorted((c for c in cards if c.arcana == "major"), key=lambda c: c.card_no)
+        major_cards = sorted((c for c in cards if c.arcana == "major"), key=lambda c: c.id)
         suits = ["wands", "cups", "swords", "pentacles"]
         minor_cards_for_suit = []
         if suit:
             minor_cards_for_suit = sorted(
                 (c for c in cards if c.arcana == "minor" and c.suit == suit),
-                key=lambda c: c.card_no,
+                key=lambda c: c.id,
             )
 
         # Bottom content:
@@ -76,10 +76,10 @@ def create_app() -> Flask:
         # - else => show one selected major card (or the first major card)
         bottom_major = None
         if not suit:
-            if card_no is None:
+            if card_id is None:
                 bottom_major = major_cards[0]
             else:
-                bottom_major = next((c for c in major_cards if c.card_no == card_no), None)
+                bottom_major = next((c for c in major_cards if c.id == card_id), None)
             if bottom_major is None:
                 abort(404, "Card not found")
 
@@ -93,7 +93,7 @@ def create_app() -> Flask:
             reversed_heading=reversed_heading,
             bottom_major=bottom_major,
             minor_cards_for_suit=minor_cards_for_suit,
-            selected_card_no=card_no,
+            selected_id=card_id,
         )
 
     return app

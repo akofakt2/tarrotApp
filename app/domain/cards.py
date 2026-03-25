@@ -9,22 +9,38 @@ Orientation = Literal["upright", "reversed"]
 
 
 @dataclass(frozen=True, slots=True)
-class CardBase:
-    card_no: int
-    id: str
+class Card:
+    """
+    Single-source model for a tarot card definition.
+
+    Fields like `arcana/suit/rank/image_path` are stored inside `cards.<locale>.json`
+    (even though they are language-neutral) to keep the data layout simple.
+    """
+
+    id: int
     arcana: Arcana
     number: int | None
     suit: Suit | None
     rank: str | None
     image_path: str
 
+    name: str
+    keywords: tuple[str, ...]
+    meaning_upright: str
+    meaning_reversed: str
+    archetype: str | None = None
+    description: str | None = None
+
     @staticmethod
-    def from_dict(raw: dict[str, Any]) -> "CardBase":
+    def from_dict(raw: dict[str, Any]) -> "Card":
         required = (
-            "card_no",
             "id",
             "arcana",
             "image_path",
+            "name",
+            "keywords",
+            "meaning_upright",
+            "meaning_reversed",
         )
         missing = [k for k in required if k not in raw]
         if missing:
@@ -38,42 +54,17 @@ class CardBase:
         if suit is not None and suit not in ("wands", "cups", "swords", "pentacles"):
             raise ValueError(f"Invalid suit: {suit!r}")
 
-        return CardBase(
-            card_no=int(raw["card_no"]),
-            id=str(raw["id"]),
+        keywords = raw["keywords"]
+        if not isinstance(keywords, list) or not all(isinstance(k, str) for k in keywords):
+            raise ValueError("keywords must be a list[str]")
+
+        return Card(
+            id=int(raw["id"]),
             arcana=arcana,
             number=raw.get("number"),
             suit=suit,
             rank=raw.get("rank"),
             image_path=str(raw["image_path"]),
-        )
-
-
-@dataclass(frozen=True, slots=True)
-class CardText:
-    card_no: int
-    id: str
-    name: str
-    keywords: tuple[str, ...]
-    meaning_upright: str
-    meaning_reversed: str
-    archetype: str | None = None
-    description: str | None = None
-
-    @staticmethod
-    def from_dict(raw: dict[str, Any]) -> "CardText":
-        required = ("card_no", "id", "name", "keywords", "meaning_upright", "meaning_reversed")
-        missing = [k for k in required if k not in raw]
-        if missing:
-            raise ValueError(f"Localized card missing required fields: {missing}")
-
-        keywords = raw["keywords"]
-        if not isinstance(keywords, list) or not all(isinstance(k, str) for k in keywords):
-            raise ValueError("keywords must be a list[str]")
-
-        return CardText(
-            card_no=int(raw["card_no"]),
-            id=str(raw["id"]),
             name=str(raw["name"]),
             keywords=tuple(keywords),
             meaning_upright=str(raw["meaning_upright"]),
@@ -83,58 +74,11 @@ class CardText:
         )
 
 
-@dataclass(frozen=True, slots=True)
-class Card:
-    card_no: int
-    id: str
-    name: str
-    arcana: Arcana
-    number: int | None
-    suit: Suit | None
-    rank: str | None
-    keywords: tuple[str, ...]
-    meaning_upright: str
-    meaning_reversed: str
-    image_path: str
-    locale: str
-    archetype: str | None = None
-    description: str | None = None
-
-
-def build_localized_card(base: CardBase, text: CardText, locale: str) -> Card:
-    return Card(
-        card_no=base.card_no,
-        id=base.id,
-        name=text.name,
-        arcana=base.arcana,
-        number=base.number,
-        suit=base.suit,
-        rank=base.rank,
-        keywords=text.keywords,
-        meaning_upright=text.meaning_upright,
-        meaning_reversed=text.meaning_reversed,
-        image_path=base.image_path,
-        locale=locale,
-        archetype=text.archetype,
-        description=text.description,
-    )
-
-
-def validate_cards(cards: list[CardBase]) -> None:
+def validate_cards(cards: list[Card]) -> None:
     if len(cards) != 78:
         raise ValueError(f"Expected 78 cards, got {len(cards)}")
 
-    card_numbers = [c.card_no for c in cards]
-    if sorted(card_numbers) != list(range(1, 79)):
-        raise ValueError("card_no must be a unique continuous range 1..78")
-
     ids = [c.id for c in cards]
-    seen: set[str] = set()
-    duplicates: set[str] = set()
-    for card_id in ids:
-        if card_id in seen:
-            duplicates.add(card_id)
-        seen.add(card_id)
-    if duplicates:
-        raise ValueError(f"Duplicate card ids: {sorted(duplicates)}")
+    if sorted(ids) != list(range(1, 79)):
+        raise ValueError("id must be a unique continuous range 1..78")
 

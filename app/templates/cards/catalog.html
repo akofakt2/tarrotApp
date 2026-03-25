@@ -17,11 +17,11 @@
             <div class="flex gap-2">
               <a
                 class="px-3 py-1 rounded border border-zinc-700 hover:border-zinc-500 {% if locale == 'sk' %}bg-zinc-800{% endif %}"
-                href="{{ url_for('cards_catalog', locale='sk', suit=selected_suit, card_no=selected_card_no) }}"
+                  href="{{ url_for('cards_catalog', locale='sk', suit=selected_suit, id=selected_id) }}"
               >SK</a>
               <a
                 class="px-3 py-1 rounded border border-zinc-700 hover:border-zinc-500 {% if locale == 'en' %}bg-zinc-800{% endif %}"
-                href="{{ url_for('cards_catalog', locale='en', suit=selected_suit, card_no=selected_card_no) }}"
+                  href="{{ url_for('cards_catalog', locale='en', suit=selected_suit, id=selected_id) }}"
               >EN</a>
             </div>
           </div>
@@ -33,11 +33,11 @@
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {% for c in major_cards %}
                 <a
-                  href="{{ url_for('cards_catalog', locale=locale, card_no=c.card_no) }}"
-                  class="block rounded border border-zinc-800 hover:border-zinc-600 p-2 {% if selected_suit is not none and bottom_major is none %}{% endif %} {% if selected_card_no == c.card_no and selected_suit is none %}bg-zinc-800{% endif %}"
+                  href="{{ url_for('cards_catalog', locale=locale, id=c.id) }}"
+                  class="block rounded border border-zinc-800 hover:border-zinc-600 p-2 {% if selected_suit is not none and bottom_major is none %}{% endif %} {% if selected_id == c.id and selected_suit is none %}bg-zinc-800{% endif %}"
                   title="{{ c.id }}"
                 >
-                  <div class="text-sm font-semibold">{{ c.card_no }}.</div>
+                  <div class="text-sm font-semibold">{{ c.id }}.</div>
                   <div class="text-xs text-zinc-300">{{ c.name }}</div>
                 </a>
               {% endfor %}
@@ -49,7 +49,7 @@
             <div class="flex flex-wrap gap-2">
               {% for s in suits %}
                 <a
-                  href="{{ url_for('cards_catalog', locale=locale, suit=s, card_no=None) }}"
+                  href="{{ url_for('cards_catalog', locale=locale, suit=s) }}"
                   class="px-3 py-1 rounded border border-zinc-800 hover:border-zinc-600 text-sm {% if selected_suit == s %}bg-zinc-800{% endif %}"
                 >
                   {{ s|capitalize }}
@@ -75,7 +75,7 @@
                   alt="{{ c.name }}"
                   class="w-full h-48 object-cover rounded border border-zinc-800"
                 />
-                <div class="font-semibold text-sm">{{ c.card_no }}. {{ c.name }}</div>
+                <div class="font-semibold text-sm">{{ c.id }}. {{ c.name }}</div>
                 <div class="text-xs text-zinc-500">
                   Keywords:
                   {% if c.keywords %}
@@ -97,7 +97,7 @@
         {% else %}
           <div class="text-lg font-semibold mb-3">
             Major card detail
-            {% if bottom_major %}({{ bottom_major.card_no }}. {{ bottom_major.name }}){% endif %}
+            {% if bottom_major %}({{ bottom_major.id }}. {{ bottom_major.name }}){% endif %}
           </div>
 
           {% if bottom_major %}

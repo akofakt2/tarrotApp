@@ -9,10 +9,10 @@ from app.domain.cards import Orientation
 
 @dataclass(slots=True)
 class Deck:
-    order: list[str] = field(default_factory=list)
-    orientations: dict[str, Orientation] = field(default_factory=dict)
+    order: list[int] = field(default_factory=list)
+    orientations: dict[int, Orientation] = field(default_factory=dict)
 
-    def reset(self, card_ids: list[str], *, seed: int | None = None) -> None:
+    def reset(self, card_ids: list[int], *, seed: int | None = None) -> None:
         self.order = list(card_ids)
         self.orientations = {}
         self.shuffle(seed=seed)
@@ -25,7 +25,7 @@ class Deck:
             card_id: ("reversed" if rng.random() < 0.5 else "upright") for card_id in self.order
         }
 
-    def draw(self, n: int) -> list[tuple[str, Orientation]]:
+    def draw(self, n: int) -> list[tuple[int, Orientation]]:
         if n < 0:
             raise ValueError("n must be >= 0")
 

@@ -1,28 +1,32 @@
 # Tarot card assets
 
-This directory contains the versioned, static tarot catalog base data.
+Technical tarot card data is stored in `app/data/i18n/cards.<locale>.json` as a single file per language.
+
+Even though fields like `arcana/suit/rank/image_path` are language-neutral, they live in the locale file to keep the data model simple.
 
 ## Files
-- `cards.base.json`: technical card metadata (language-neutral)
-- localized card text files are in `app/data/i18n/` as `cards.<locale>.json`
+- `app/data/i18n/cards.<locale>.json`: 78-card catalog (Major + Minor arcana)
 
-## Conventions
-- `card_no`
-  - Numeric card identifier `1..78`
-  - Primary key for joining `cards.base.json` with `cards.<locale>.json`
-  - Guarantees stable lookup from localized content to `image_path`
+## Conventions (`cards.<locale>.json`)
 - `id`
-  - Major: `major_{NN}_{slug}` where `NN` is 2-digit (00-21), e.g. `major_00_the_fool`
-  - Minor: `minor_{suit}_{rank}`, e.g. `minor_wands_ace`, `minor_cups_ten`, `minor_swords_queen`
+  - Numeric card identifier `1..78` (this is the primary key)
+- `arcana`
+  - `"major"` or `"minor"`
+- `number`
+  - For `"major"`: `0..21` (optional for `"minor"`)
+- `suit`
+  - For `"minor"`: `"wands"|"cups"|"swords"|"pentacles"` (optional for `"major"`)
+- `rank`
+  - For `"minor"`: `"ace".."ten"|"page"|"knight"|"queen"|"king"` (optional for `"major"`)
 - `image_path`
   - Relative to `app/static/`
   - Major: `cards/major/{NN}_{slug}.webp`
   - Minor: `cards/minor/{suit}/{rank}.webp`
 
-## Localized card files
-- `cards.<locale>.json` uses `cards: []`
-- each item must contain:
-  - `card_no` (number, required)
-  - `id` (string, required, must match base card with same `card_no`)
-  - `name`, `keywords`, `meaning_upright`, `meaning_reversed`
+## Localized fields
+- `name`
+- `keywords` (`string[]`)
+- `meaning_upright`
+- `meaning_reversed`
+- optional: `archetype`, `description`
 
