@@ -1,169 +1,169 @@
+"""Flask app: presný balík 78 kariet + JSON a obrázky podľa TAROT_LOCALE."""
+
 from __future__ import annotations
 
 import json
 import os
-import re
 from pathlib import Path
 from typing import Any
 
-from flask import Flask, abort, render_template, request
+from flask import Flask, abort, current_app, render_template, request
 
+from app.domain.cards import Card, validate_cards
 from app.domain.deck import Deck
-from app.infra.cards_repository import load_cards_repository
+
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    load_dotenv = None  # type: ignore[misc, assignment]
+
+APP_DIR = Path(__file__).resolve().parent
+DATA_DIR = APP_DIR / "data" / "i18n"
 
 
-def _load_pages(locale: str, *, fallback_locale: str = "sk") -> dict[str, Any]:
-    root = Path(__file__).resolve().parent.parent
-    pages_path = root / "app" / "data" / "i18n" / f"pages.{locale}.json"
-    if not pages_path.exists():
-        pages_path = root / "app" / "data" / "i18n" / f"pages.{fallback_locale}.json"
+def _load_cards(locale: str) -> list[Card]:
+    path = DATA_DIR / f"cards.{locale}.json"
+    if not path.is_file():
+        raise FileNotFoundError(f"Chýba presný súbor: {path}")
 
-    return json.loads(pages_path.read_text(encoding="utf-8"))
+    data = json.loads(path.read_text(encoding="utf-8"))
+    raw = data.get("cards")
+    if not isinstance(raw, list):
+        raise ValueError("cards.<locale>.json: očakávam pole 'cards'")
+    cards = [Card.from_dict(c) for c in raw]
+    validate_cards(cards)
+    return cards
+
+
+def _load_pages(locale: str) -> dict[str, Any]:
+    path = DATA_DIR / f"pages.{locale}.json"
+    if not path.is_file():
+        raise FileNotFoundError(f"Chýba presný súbor: {path}")
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _validate_card_faces(cards: list[Card], images_dir: Path) -> None:
+    missing: list[str] = []
+    for c in cards:
+        p = images_dir / c.image_path
+        if not p.is_file():
+            missing.append(f"{c.id}: {c.image_path}")
+    if missing:
+        raise FileNotFoundError(
+            "Chýbajú obrázky predných strán kariet:\n" + "\n".join(missing[:20])
+            + (f"\n... a ďalších {len(missing) - 20}" if len(missing) > 20 else "")
+        )
 
 
 def create_app() -> Flask:
-    base_dir = Path(__file__).resolve().parent  # .../app
-    template_folder = base_dir / "templates"
-    static_folder = base_dir / "static"
+    if load_dotenv is not None:
+        load_dotenv()
 
     app = Flask(
         __name__,
-        template_folder=str(template_folder),
-        static_folder=str(static_folder),
+        template_folder=str(APP_DIR / "templates"),
+        static_folder=str(APP_DIR / "static"),
     )
 
-    app.config["TAROT_CARD_SET"] = os.getenv("TAROT_CARD_SET", "default")
-    app.config["TAROT_CARD_IMAGES_BASE_DIR"] = os.getenv("TAROT_CARD_IMAGES_BASE_DIR", "cards")
+    locale = (os.getenv("TAROT_LOCALE") or "en").strip().lower()
+    if locale not in {"en", "sk"}:
+        raise ValueError("TAROT_LOCALE musí byť en alebo sk")
+
+    cards = _load_cards(locale)
+    pages = _load_pages(locale)
+
+    card_set = (os.getenv("TAROT_CARD_SET") or "default").strip()
+    img_base = (os.getenv("TAROT_CARD_IMAGES_BASE_DIR") or "cards").strip().strip("/")
+    images_abs = APP_DIR / "static" / img_base / card_set
+    card_back = (os.getenv("TAROT_CARD_BACK") or "back.png").strip()
+
+    Deck.validate_back(card_back, images_abs)
+    _validate_card_faces(cards, images_abs)
+
+    app.config["CARDS"] = cards
+    app.config["PAGES"] = pages
+    app.config["LOCALE"] = locale
+    app.config["CARD_IMAGES_DIR"] = f"{img_base}/{card_set}"
+    app.config["CARD_BACK"] = card_back
+    app.config["CARD_IMAGES_ABS"] = images_abs
 
     @app.get("/cards")
     def cards_catalog() -> str:
-        locale = (request.args.get("locale") or "en").lower()
-        if locale not in {"en", "sk"}:
-            abort(400, "Unsupported locale")
-
-        card_set = (request.args.get("set") or app.config.get("TAROT_CARD_SET") or "default").strip().lower()
-        if not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", card_set):
-            abort(400, "Unsupported card set")
-        images_base_dir = (app.config.get("TAROT_CARD_IMAGES_BASE_DIR") or "cards").strip().strip("/")
-        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_/-]*", images_base_dir):
-            abort(500, "Invalid TAROT_CARD_IMAGES_BASE_DIR")
-        card_images_dir = f"{images_base_dir}/{card_set}".strip("/")
-
+        loc = current_app.config["LOCALE"]
         suit = request.args.get("suit")
-        if suit is not None and suit.lower() in {"none", ""}:
+        if suit and suit.lower() in {"", "none"}:
             suit = None
-        if suit is not None and suit not in {"wands", "cups", "swords", "pentacles"}:
-            abort(400, "Unsupported suit")
+        if suit and suit not in {"wands", "cups", "swords", "pentacles"}:
+            abort(400, "Neplatný suit")
 
-        card_id_raw = request.args.get("id")
         card_id = None
-        if card_id_raw and card_id_raw.lower() not in {"none", ""}:
+        raw_id = request.args.get("id")
+        if raw_id and raw_id.lower() not in {"", "none"}:
             try:
-                card_id = int(card_id_raw)
+                card_id = int(raw_id)
             except ValueError:
-                abort(400, "id must be an integer")
-
-        # If a major card is explicitly selected, show major detail even if `suit`
-        # is present in the query string (e.g. after switching suits earlier).
+                abort(400, "id musí byť číslo")
         if card_id is not None:
             suit = None
 
-        pages = _load_pages(locale, fallback_locale="sk")
-        card_detail = pages.get("pages", {}).get("card_detail", {})
-        upright_heading = card_detail.get("upright_heading", "Upright")
-        reversed_heading = card_detail.get("reversed_heading", "Reversed")
+        pages = current_app.config["PAGES"]
+        detail = pages.get("pages", {}).get("card_detail", {})
+        up = detail.get("upright_heading", "Upright")
+        rev = detail.get("reversed_heading", "Reversed")
 
-        repo = load_cards_repository(
-            locale=locale,
-            fallback_locale="sk",
-            validate_images=False,
-            card_set=card_set,
-            images_base_dir=images_base_dir,
-        )
-        cards = repo.list_all()
-
-        major_cards = sorted((c for c in cards if c.arcana == "major"), key=lambda c: c.id)
+        all_cards: list[Card] = current_app.config["CARDS"]
+        major = sorted((c for c in all_cards if c.arcana == "major"), key=lambda c: c.id)
         suits = ["wands", "cups", "swords", "pentacles"]
-        minor_cards_for_suit = []
+        minors = []
         if suit:
-            minor_cards_for_suit = sorted(
-                (c for c in cards if c.arcana == "minor" and c.suit == suit),
+            minors = sorted(
+                (c for c in all_cards if c.arcana == "minor" and c.suit == suit),
                 key=lambda c: c.id,
             )
 
-        # Bottom content:
-        # - if suit selected => show minor cards for this suit
-        # - else => show one selected major card (or the first major card)
-        bottom_major = None
+        bottom = None
         if not suit:
             if card_id is None:
-                bottom_major = major_cards[0]
+                bottom = major[0]
             else:
-                bottom_major = next((c for c in major_cards if c.id == card_id), None)
-            if bottom_major is None:
-                abort(404, "Card not found")
+                bottom = next((c for c in major if c.id == card_id), None)
+            if bottom is None:
+                abort(404, "Karta nenájdená")
 
         return render_template(
             "cards/catalog.html",
-            locale=locale,
-            card_set=card_set,
-            card_images_dir=card_images_dir,
-            major_cards=major_cards,
+            locale=loc,
+            card_images_dir=current_app.config["CARD_IMAGES_DIR"],
+            major_cards=major,
             suits=suits,
             selected_suit=suit,
-            upright_heading=upright_heading,
-            reversed_heading=reversed_heading,
-            bottom_major=bottom_major,
-            minor_cards_for_suit=minor_cards_for_suit,
+            upright_heading=up,
+            reversed_heading=rev,
+            bottom_major=bottom,
+            minor_cards_for_suit=minors,
             selected_id=card_id,
         )
 
     @app.get("/deck")
     def deck_view() -> str:
-        locale = (request.args.get("locale") or "en").lower()
-        if locale not in {"en", "sk"}:
-            abort(400, "Unsupported locale")
-
-        card_set = (request.args.get("set") or app.config.get("TAROT_CARD_SET") or "default").strip().lower()
-        if not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", card_set):
-            abort(400, "Unsupported card set")
-        images_base_dir = (app.config.get("TAROT_CARD_IMAGES_BASE_DIR") or "cards").strip().strip("/")
-        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_/-]*", images_base_dir):
-            abort(500, "Invalid TAROT_CARD_IMAGES_BASE_DIR")
-        card_images_dir = f"{images_base_dir}/{card_set}".strip("/")
-
-        seed_raw = request.args.get("seed")
-        seed: int | None = None
-        if seed_raw and seed_raw.lower() not in {"none", ""}:
-            try:
-                seed = int(seed_raw)
-            except ValueError:
-                abort(400, "seed must be an integer")
-
-        repo = load_cards_repository(
-            locale=locale,
-            fallback_locale="sk",
-            validate_images=False,
-            card_set=card_set,
-            images_base_dir=images_base_dir,
+        loc = current_app.config["LOCALE"]
+        all_cards: list[Card] = current_app.config["CARDS"]
+        d = Deck(
+            back=current_app.config["CARD_BACK"],
+            images_dir=current_app.config["CARD_IMAGES_ABS"],
         )
-        cards = repo.list_all()
+        d.reset(sorted(c.id for c in all_cards))
+        d.shuffle()
 
-        d = Deck()
-        d.reset(sorted((c.id for c in cards)))
-        d.shuffle(seed=seed)
-
-        cards_by_id = {c.id: c for c in cards}
-        deck_cards = [(cards_by_id[card_id], d.orientations.get(card_id, "upright")) for card_id in d.order]
+        by_id = {c.id: c for c in all_cards}
+        deck_cards = [(by_id[i], d.orientations.get(i, "upright")) for i in d.order]
 
         return render_template(
             "deck/view.html",
-            locale=locale,
-            card_set=card_set,
-            card_images_dir=card_images_dir,
+            locale=loc,
+            card_images_dir=current_app.config["CARD_IMAGES_DIR"],
+            deck_back=current_app.config["CARD_BACK"],
             deck_cards=deck_cards,
-            seed=seed,
         )
 
     return app
-

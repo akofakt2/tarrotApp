@@ -11,20 +11,6 @@
       <section>
         <div class="header">
           <h1 class="title">Tarot catalog</h1>
-
-          <div class="row">
-            <span class="muted">Locale</span>
-            <div class="row">
-              <a
-                class="pill {% if locale == 'sk' %}is-active{% endif %}"
-                  href="{{ url_for('cards_catalog', locale='sk', set=card_set, suit=selected_suit, id=selected_id) }}"
-              >SK</a>
-              <a
-                class="pill {% if locale == 'en' %}is-active{% endif %}"
-                  href="{{ url_for('cards_catalog', locale='en', set=card_set, suit=selected_suit, id=selected_id) }}"
-              >EN</a>
-            </div>
-          </div>
         </div>
 
         <div class="grid-top" style="margin-top: 16px;">
@@ -33,7 +19,7 @@
             <div class="major-grid">
               {% for c in major_cards %}
                 <a
-                  href="{{ url_for('cards_catalog', locale=locale, set=card_set, id=c.id) }}"
+                  href="{{ url_for('cards_catalog', id=c.id) }}"
                   class="major-item {% if selected_id == c.id and selected_suit is none %}is-active{% endif %}"
                   title="{{ c.id }}"
                 >
@@ -49,7 +35,7 @@
             <div class="suits">
               {% for s in suits %}
                 <a
-                  href="{{ url_for('cards_catalog', locale=locale, set=card_set, suit=s) }}"
+                  href="{{ url_for('cards_catalog', suit=s) }}"
                   class="pill {% if selected_suit == s %}is-active{% endif %}"
                 >
                   {{ s|capitalize }}

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import random
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Literal
 
 Orientation = Literal["upright", "reversed"]
@@ -9,39 +10,36 @@ Orientation = Literal["upright", "reversed"]
 
 @dataclass(slots=True)
 class Deck:
+    """
+    `back` – názov súboru zadnej strany (rovnaký adresár ako `image_path` kariet, napr. `back.png`).
+    `images_dir` – absolútna cesta k tomu adresáru (napr. .../app/static/cards/default).
+    """
+
+    back: str
+    images_dir: Path
     order: list[int] = field(default_factory=list)
     orientations: dict[int, Orientation] = field(default_factory=dict)
 
-    def reset(self, card_ids: list[int], *, seed: int | None = None) -> None:
-        """
-        Nastaví deck do "nového" stavu:
-        - `order` je sekvenčný v poradí dodaných `card_ids`
-        - všetky karty sú orientované ako `upright`
+    def __post_init__(self) -> None:
+        Deck.validate_back(self.back, self.images_dir)
 
-        `seed` je tu len pre kompatibilitu podpisu; pri `reset()` sa nepoužíva
-        (orientácie sú vždy upright).
-        """
-        _ = seed
+    @staticmethod
+    def validate_back(back: str, images_dir: Path) -> None:
+        path = images_dir / back
+        if not path.is_file():
+            raise FileNotFoundError(f"Chýba obrázok zadnej strany karty: {path}")
+
+    def reset(self, card_ids: list[int]) -> None:
         self.order = list(card_ids)
         self.orientations = {card_id: "upright" for card_id in self.order}
 
-    def init(self, card_ids: list[int], *, seed: int | None = None) -> None:
-        """Alias pre `reset()` (API pre "reset/init")."""
-        self.reset(card_ids, seed=seed)
+    def init(self, card_ids: list[int]) -> None:
+        self.reset(card_ids)
 
-    def shuffle(self, *, seed: int | None = None) -> None:
-        """
-        Zamieša karty a nastaví im náhodnú orientáciu.
-
-        Výsledok:
-        - karty nie sú v pôvodnom poradí (neidú za sebou)
-        - každá karta má 50/50 šancu byť `upright` alebo `reversed`
-        """
-        rng = random.Random(seed)
-        rng.shuffle(self.order)
-
+    def shuffle(self) -> None:
+        random.shuffle(self.order)
         self.orientations = {
-            card_id: ("reversed" if rng.random() < 0.5 else "upright") for card_id in self.order
+            card_id: ("reversed" if random.random() < 0.5 else "upright") for card_id in self.order
         }
 
     def draw(self, n: int) -> list[tuple[int, Orientation]]:
@@ -54,4 +52,3 @@ class Deck:
             orientation: Literal["upright", "reversed"] = self.orientations.get(card_id, "upright")
             drawn.append((card_id, orientation))
         return drawn
-

@@ -11,18 +11,22 @@
       <section>
         <div class="header">
           <h1 class="title">Shuffled deck</h1>
-
-          <div class="row">
-            <span class="muted">Locale</span>
-            <div class="row">
-              <a class="pill {% if locale == 'sk' %}is-active{% endif %}" href="{{ url_for('deck_view', locale='sk', set=card_set, seed=seed) }}">SK</a>
-              <a class="pill {% if locale == 'en' %}is-active{% endif %}" href="{{ url_for('deck_view', locale='en', set=card_set, seed=seed) }}">EN</a>
-            </div>
-          </div>
         </div>
 
         <p class="hint">
-          This is a randomized order of all 78 cards, including random upright/reversed orientations{% if seed is not none %} (seed={{ seed }}){% endif %}.
+          Back of card (same folder as faces): <code class="mono">{{ deck_back }}</code>
+        </p>
+        <div style="max-width: 140px; margin-top: 8px;">
+          <img
+            src="{{ url_for('static', filename=card_images_dir ~ '/' ~ deck_back) }}"
+            alt=""
+            class="card-img"
+            loading="lazy"
+          />
+        </div>
+
+        <p class="hint" style="margin-top: 12px;">
+          Náhodné poradie všetkých 78 kariet a náhodná orientácia (upright/reversed).
         </p>
       </section>
 
